@@ -3,7 +3,7 @@ body{
     font-family: "Roboto", sans-serif;
 }
 @theme {
-  --color-primary: #1565C0;
-  --color-secondary: #FF9800;
-  --color-accent: #FAFAFA;
+ --color-primary: #1565C0;
+--color-secondary: #43A047;
+--color-accent: #FAFAFA;
 }

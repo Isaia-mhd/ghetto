@@ -16,6 +16,9 @@
     <title>Ghetto</title>
 </head>
 <body>
+    <div class="">
+        @include("components.header")
+    </div>
     <section class="w-full">
         {{ $slot }}
     </section>
