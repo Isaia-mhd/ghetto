@@ -4,4 +4,5 @@
     @include("components.home.nearby_listing")
     @include("components.home.best_listing")
     @include("components.home.try_hosting")
+    @include("components.home.features_listing")
 </div>
