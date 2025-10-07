@@ -7,8 +7,8 @@
                 <h2 class="text-sm font-semibold pb-2">GHETTO</h2>
                 <p class="text-xs">Trouvez votre logement idéal en un clic</p>
                 <div class="w-full flex gap-2 mt-6">
-                    <button class="py-2 px-4 text-xs text-myblack rounded-full bg-gray-300 cursor-pointer">PlayStore</button>
-                    <button class="py-2 px-4 text-xs text-myblack rounded-full bg-gray-300 cursor-pointer">AppleStore</button>
+                    <button class="py-2 px-4 text-xs text-myblack rounded-full bg-gray-300 cursor-pointer"><i class="fa-brands fa-google-play"></i> PlayStore</button>
+                    <button class="py-2 px-4 text-xs text-myblack rounded-full bg-gray-300 cursor-pointer"><i class="fa-brands fa-apple"></i> AppleStore</button>
                 </div>
             </div>
             <div class="">
