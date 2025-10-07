@@ -28,7 +28,7 @@
         <a href="#" class="hover:text-mywhite">Mot de passe oublié?</a>
       </div>
 
-      <button type="submit" class="w-full bg-secondary text-mywhite text-xs font-semibold py-2 rounded-lg shadow-lg hover:opacity-90 transition cursor-pointer">Sign In</button>
+      <button type="submit" class="w-full bg-secondary text-mywhite text-xs font-semibold py-2 rounded-lg shadow-lg hover:opacity-90 transition cursor-pointer">Se connecter</button>
     </form>
 
     {{-- Divider --}}
@@ -50,7 +50,7 @@
 
     <!-- Signup -->
     <p class="text-center text-mywhite/70 text-sm mt-6">
-      Nouveau sur notre plateforme? <a href="" wire:navigate class="font-semibold text-mywhite hover:underline">Créer un compte</a>
+      Nouveau sur notre plateforme? <a href="{{ route("register") }}" wire:navigate class="font-semibold text-mywhite hover:underline">Créer un compte</a>
     </p>
 
   </div>
