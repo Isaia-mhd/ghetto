@@ -5,7 +5,7 @@
 
         </div>
         <ul
-            class="w-[80%] text-xs lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3 text-accent ">
+            class="w-[80%] text-xs text-mywhite lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3 text-accent ">
             <a href="{{ route("home") }}" wire:navigate>Accueil</a>
             <a href="{{ route("property") }}" wire:navigate>Maisons</a>
             <a href="/contact" wire:navigate>Telecharger l'App Mobile</a>

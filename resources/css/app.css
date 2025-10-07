@@ -3,9 +3,9 @@ body{
     font-family: "Roboto", sans-serif;
 }
 @theme {
- --color-primary: #1565C0;
---color-secondary: #43A047;
---color-accent: #FAFAFA;
+ --color-primary: #4AB0A3;
+--color-secondary: #E57E3A;
+--color-accent: #2C7C6A;
 --color-myblack: black;
 --color-mywhite: white;
 }
