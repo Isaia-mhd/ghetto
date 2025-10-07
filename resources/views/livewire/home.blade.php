@@ -5,4 +5,5 @@
     @include("components.home.best_listing")
     @include("components.home.try_hosting")
     @include("components.home.features_listing")
+    @include("components.home.browse_more_listing")
 </div>
