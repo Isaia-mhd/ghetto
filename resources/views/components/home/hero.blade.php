@@ -1,4 +1,4 @@
-<div class="relative bg-cover bg-center h-[80vh] rounded-b-lg" style="background-image: url({{ asset('assets/bg.jpg') }}); backgoround-size: cover; background-position: center;">
+<div class="relative bg-cover bg-center h-[80vh]" style="background-image: url({{ asset('assets/bg.jpg') }}); backgoround-size: cover; background-position: center;">
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-centerpx-6 text-center">
         <h1 class="text-2xl  md:text-4xl mb-6 text-primary font-semibold">
             Trouvez votre maison d'hôtes idéale
