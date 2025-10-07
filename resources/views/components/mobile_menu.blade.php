@@ -5,7 +5,7 @@
     </button>
     <ul class="flex flex-col space-y-4 text-xs">
         <a href="{{ route('home') }}" wire:navigate>Accueil</a>
-        <a href="" wire:navigate>Maisons</a>
+        <a href="{{ route("property") }}" wire:navigate>Maisons</a>
         <a href="/contact" wire:navigate>Telecharger l'App Mobile</a>
         <a href="/" wire:navigate>FAQs</a>
         <a href="/contact" wire:navigate>Contact</a>

@@ -7,11 +7,11 @@
         <ul
             class="w-[80%] text-xs lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3 text-accent ">
             <a href="{{ route("home") }}" wire:navigate>Accueil</a>
-            <a href="" wire:navigate>Maisons</a>
+            <a href="{{ route("property") }}" wire:navigate>Maisons</a>
             <a href="/contact" wire:navigate>Telecharger l'App Mobile</a>
             <a href="/" wire:navigate>FAQs</a>
             <a href="/contact" wire:navigate>Contact</a>
-            <a href="/contact" wire:navigate>A propos</a>
+            <a href="/apropos" wire:navigate>A propos</a>
             <a href="" wire:navigate class="bg-secondary font-semibold text-sm py-2 px-3 rounded-full">Connexion</a>
             @auth
                 <a href="/"
