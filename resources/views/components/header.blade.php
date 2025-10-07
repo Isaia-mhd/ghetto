@@ -1,8 +1,8 @@
 <header class="bg-primary w-full py-2">
     <div class="w-full h-full max-w-[90%] mx-auto flex justify-between items-center gap-6">
         <div class="w-[20%]">
-            {{-- <img src="" alt="ghetto_logo" class="w-10 h-10 rounded-full" /> --}}
-            <h2 class="text-accent font-bold">GHETTO</h2>
+            <img src="{{ asset("assets/logo.jpg") }}" alt="Ghetto" class="w-10 h-10 rounded-full">
+
         </div>
         <ul
             class="w-[80%] text-xs lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3 text-accent ">

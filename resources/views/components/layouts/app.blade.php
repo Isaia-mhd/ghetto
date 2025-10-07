@@ -22,6 +22,9 @@
     <section class="w-full">
         {{ $slot }}
     </section>
+    <div class="">
+        @include("components.footer")
+    </div>
     @livewireScripts
 </body>
 </html>
