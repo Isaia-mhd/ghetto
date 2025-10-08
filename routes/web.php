@@ -11,8 +11,8 @@ use App\Livewire\UserProfile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
-Route::get('/proprietes', Property::class)->name('property');
-Route::get('/proprietes/1', PropertyDetails::class)->name('property.details');
+Route::get('/properties', Property::class)->name('property');
+Route::get('/properties/1', PropertyDetails::class)->name('property.details');
 Route::get('/dashboard', UserProfile::class)->name('profile');
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');
