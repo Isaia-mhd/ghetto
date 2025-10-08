@@ -1,6 +1,6 @@
-<div class="w-full mx-auto mt-10">
+<div class="w-full mx-auto">
     <h3 class="text-2xl font-bold text-myblack mb-6 flex items-center gap-2">
-        <i class="fa-solid fa-calendar-check text-secondary"></i>
+        <i class="fa-solid fa-calendar-check text-green-600"></i>
         Vos Réservations
     </h3>
 
