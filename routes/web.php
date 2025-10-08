@@ -7,12 +7,13 @@ use App\Livewire\Home;
 use App\Livewire\Property;
 use App\Livewire\Auth\Login;
 use App\Livewire\PropertyDetails;
+use App\Livewire\UserProfile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/proprietes', Property::class)->name('property');
 Route::get('/proprietes/1', PropertyDetails::class)->name('property.details');
-Route::get('proprietes/1/reservations', Booking::class)->name('cart');
+Route::get('/dashboard', UserProfile::class)->name('profile');
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');
 
