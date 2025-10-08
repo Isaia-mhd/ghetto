@@ -1,4 +1,4 @@
-<a href="" wire:navigate>
+<a href="{{ route("property.details") }}" wire:navigate>
     <div class="relative w-[250px] bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
         <img class="w-full h-48 object-cover" src="{{ asset('assets/house1.jpg') }}" alt="image">
 
