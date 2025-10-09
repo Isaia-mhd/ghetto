@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-100 flex">
+<div class="min-h-screen bg-gray-100 flex" wire:poll>
 
     {{-- Aside bar --}}
     <aside class="w-64 bg-white shadow-xl flex flex-col justify-between">

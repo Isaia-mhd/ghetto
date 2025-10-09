@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -11,6 +12,11 @@ class UserProfile extends Component
      public $isFavorites = false;
      public $isBooking = false;
      public $showModal = false;
+     public $isToSave = false;
+     public $name;
+     public $email;
+     public $phone;
+     public $address;
 
      public function openModal()
     {
@@ -51,6 +57,30 @@ class UserProfile extends Component
                 $this->isBooking = !$this->isProfile;
                 break;
         }
+    }
+
+    public function edit()
+    {
+        $this->isToSave = !$this->isToSave;
+    }
+    public function mount()
+    {
+        $this->name = auth()->user()->name;
+        $this->email = auth()->user()->email;
+        $this->phone = auth()->user()->phone;
+        $this->address = auth()->user()->address;
+    }
+    public function update($user)
+    {
+        $user = User::find($user);
+        $user->update([
+            "name" => $this->name,
+            "email" => $this->email,
+            "phone" => $this->phone,
+            "address" => $this->address
+        ]);
+        $this->isToSave = false;
+        return redirect()->back();
     }
     public function render()
     {
