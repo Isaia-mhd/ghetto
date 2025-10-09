@@ -14,7 +14,7 @@
             <h2 class="text-xl font-semibold text-gray-800 mb-4">Qui sommes-nous ?</h2>
             <p class="text-sm text-gray-600 leading-relaxed">
                 Nous sommes une équipe de Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto perspiciatis quisquam perferendis exercitationem tenetur? Veniam illo molestiae quaerat ducimus harum expedita facilis quam distinctio ad eos, provident eligendi maiores dolores?</p>
-            <p class="text-gray-600 leading-relaxed mt-3">
+            <p class="text-sm text-gray-600 leading-relaxed mt-3">
                 Ce projet est né d’une volonté d’innovation et d’entraide. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, debitis tenetur! Error deserunt tenetur facere. Nobis qui maiores necessitatibus optio!
             </p>
         </div>
