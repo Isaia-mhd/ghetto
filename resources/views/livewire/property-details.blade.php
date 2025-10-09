@@ -84,7 +84,7 @@
             </div>
             {{-- book button --}}
             <div class="w-full mt-6 flex items-center justify-center">
-                <a href="" class=" text-sm text-mywhite bg-secondary  py-2 px-8 rounded-full">Reserver
+                <a href="" class=" text-xs text-mywhite bg-secondary  py-2 px-8 rounded-full">Reserver
                     maintenant</a>
             </div>
             <div class="flex items-center justify-start !text-xs mt-6">
