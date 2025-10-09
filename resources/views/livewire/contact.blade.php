@@ -95,19 +95,7 @@
                             <p class="text-xs text-gray-500 mb-3">458IG Amboboka — Mahajanga, Madagascar</p>
                         </div>
 
-                        <div class="w-full h-72 md:h-96">
-                            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
-                                marginwidth="0"
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=46.3410%2C-15.6453%2C46.3610%2C-15.6253&layer=mapnik&marker=-15.6353%2C46.3510"
-                                style="border:0;">
-                            </iframe>
-                            <div class="p-3 text-xs text-gray-500 bg-white/70">
-                                <a href="https://www.openstreetmap.org/?mlat=-15.6353&mlon=46.3510#map=15/-15.6353/46.3510"
-                                    target="_blank" rel="noopener" class="underline">
-                                    Voir sur OpenStreetMap
-                                </a>
-                            </div>
-                        </div>
+                        @include("components.map")
                     </div>
                 </div>
 

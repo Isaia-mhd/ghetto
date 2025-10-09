@@ -71,10 +71,31 @@
                     <li>Smoke Detectors</li>
                 </ul>
             </div>
-
-            {{-- MAP --}}
+        </div>
+        {{-- Card of button to book --}}
+        <div class="w-full md:w-[300px] h-min shadow-md shadow-gray-200 rounded-2xl py-4 px-4">
+            <h2 class="text-sm font-semibold">Tarifs</h2>
+            <hr>
+            <div class="flex flex-col my-3 text-xs space-y-2">
+                <span>Par jour: $450</span>
+                <span> Par nuit: $450</span>
+                <span>Par mois: $450</span>
+                <span>Par an: $450</span>
+            </div>
+            {{-- book button --}}
+            <div class="w-full mt-6 flex items-center justify-center">
+                <a href="" class=" text-sm text-mywhite bg-secondary  py-2 px-8 rounded-full">Reserver
+                    maintenant</a>
+            </div>
+            <div class="flex items-center justify-start !text-xs mt-6">
+                <a href="" class="text-blue-600"><i class="fa-solid fa-phone-volume px-2"></i>Contacter
+                    l’hôte</a>
+            </div>
+        </div>
+    </div>
+    {{-- MAP --}}
             <div class="w-full mt-6">
-                <img src="{{ asset('assets/map.webp') }}" alt="map" class="w-full rounded-md">
+                @include("components.map")
             </div>
 
             {{-- REVIEWS --}}
@@ -142,26 +163,4 @@
                 <button class="text-xs bg-secondary rounded-2xl py-2 px-4 cursor-pointer text-mywhite">Voir tous les
                     avis</button>
             </div>
-        </div>
-        {{-- Card of button to book --}}
-        <div class="w-full md:w-[300px] h-min shadow-md shadow-gray-200 rounded-2xl py-4 px-4">
-            <h2 class="text-sm font-semibold">Tarifs</h2>
-            <hr>
-            <div class="flex flex-col my-3 text-xs space-y-2">
-                <span>Par jour: $450</span>
-                <span> Par nuit: $450</span>
-                <span>Par mois: $450</span>
-                <span>Par an: $450</span>
-            </div>
-            {{-- book button --}}
-            <div class="w-full mt-6 flex items-center justify-center">
-                <a href="" class=" text-sm text-mywhite bg-secondary  py-2 px-8 rounded-full">Reserver
-                    maintenant</a>
-            </div>
-            <div class="flex items-center justify-start !text-xs mt-6">
-                <a href="" class="text-blue-600"><i class="fa-solid fa-phone-volume px-2"></i>Contacter
-                    l’hôte</a>
-            </div>
-        </div>
-    </div>
 </div>
