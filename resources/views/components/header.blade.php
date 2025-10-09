@@ -5,16 +5,16 @@
 
         </div>
         <ul
-            class="w-[80%] text-xs text-mywhite lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3 text-accent ">
+            class="w-[80%] text-xs text-mywhite lg:text-sm font-semibold hidden md:flex justify-between items-center gap-3">
             <a href="{{ route("home") }}" wire:navigate>Accueil</a>
             <a href="{{ route("property") }}" wire:navigate>Maisons</a>
             <a href="/contact" wire:navigate>Telecharger l'App Mobile</a>
             <a href="/" wire:navigate>FAQs</a>
-            <a href="/contact" wire:navigate>Contact</a>
+            <a href="{{ route("contact") }}" wire:navigate>Contact</a>
             <a href="/apropos" wire:navigate>A propos</a>
             <a href="{{ route("login") }}" wire:navigate class="bg-secondary font-semibold text-sm py-2 px-3 rounded-full">Connexion</a>
             @auth
-                <a href="/"
+                <a href="{{ route("profile") }}"
                     class="w-20 h-10 hidden border-2 py-2 border-primary hover:border-secondary duration-700 lg:flex justify-center items-center gap-2 rounded-full">
                     <i class="fa-solid fa-bars"></i>
                     <div class="w-8 h-8 rounded-full bg-gray-500 flex justify-center items-center"><i
