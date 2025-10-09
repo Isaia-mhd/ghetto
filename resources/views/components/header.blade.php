@@ -11,7 +11,7 @@
             <a href="/contact" wire:navigate>Telecharger l'App Mobile</a>
             <a href="/" wire:navigate>FAQs</a>
             <a href="{{ route("contact") }}" wire:navigate>Contact</a>
-            <a href="/apropos" wire:navigate>A propos</a>
+            <a href="{{ route("about") }}" wire:navigate>A propos</a>
             <a href="{{ route("login") }}" wire:navigate class="bg-secondary font-semibold text-sm py-2 px-3 rounded-full">Connexion</a>
             @auth
                 <a href="{{ route("profile") }}"
