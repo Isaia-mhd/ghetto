@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class UserProfile extends Component
@@ -9,6 +10,23 @@ class UserProfile extends Component
      public $isProfile = true;
      public $isFavorites = false;
      public $isBooking = false;
+     public $showModal = false;
+
+     public function openModal()
+    {
+        $this->showModal = true;
+    }
+
+    public function closeModal()
+    {
+        $this->showModal = false;
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        redirect()->route("home");
+    }
     public function showTab($tab)
     {
         switch ($tab) {
