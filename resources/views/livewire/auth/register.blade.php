@@ -7,23 +7,33 @@
             <h2 class="text-xl font-bold text-mywhite ">Inscription</h2>
         </div>
 
-        <form class="space-y-3">
+        <form class="space-y-3" wire:submit='register'>
             <div>
                 <label for="email" class="block text-sm text-mywhite font-semibold">Nom complet</label>
-                <input type="text" id="name"
+                <input type="text" id="name" wire:model='name'
                     class="mt-1 w-full rounded-lg bg-mywhite/20 border border-mywhite/30 px-4 py-1 text-myblack placeholder-white/40 focus:border-mywhite/40 focus:ring focus:ring-mywhite/20">
+                @error("name")
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
             </div>
             <div>
                 <label for="email" class="block text-sm text-mywhite font-semibold">Email</label>
-                <input type="email" id="email"
+                <input type="email" id="email"wire:model='email'
                     class="mt-1 w-full rounded-lg bg-mywhite/20 border border-mywhite/30 px-4 py-1 text-myblack placeholder-white/40 focus:border-mywhite/40 focus:ring focus:ring-mywhite/20">
-            </div>
+
+                @error("email")
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+                </div>
 
             <div>
                 <label for="password" class="block text-sm text-mywhite font-semibold">Mot de passe</label>
-                <input type="password" id="password"
+                <input type="password" id="password" wire:model='password'
                     class="mt-1 w-full rounded-lg bg-mywhite/20 border border-mywhite/30 px-4 py-1 text-myblack placeholder-white/40 focus:border-white/40 focus:ring focus:ring-white/20">
-            </div>
+                @error("password")
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+                </div>
 
             <button type="submit"
                 class="w-full bg-secondary text-mywhite text-xs font-semibold py-2 rounded-lg shadow-lg hover:opacity-90 transition cursor-pointer">S'inscrire</button>
