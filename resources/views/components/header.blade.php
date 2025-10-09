@@ -12,7 +12,9 @@
             <a href="/" wire:navigate>FAQs</a>
             <a href="{{ route("contact") }}" wire:navigate>Contact</a>
             <a href="{{ route("about") }}" wire:navigate>A propos</a>
+            @guest
             <a href="{{ route("login") }}" wire:navigate class="bg-secondary font-semibold text-xs py-2 px-3 rounded-full">Connexion</a>
+            @endguest
             @auth
                 <a href=""><i class="fa-solid fa-bell"></i></a>
                 <a href="{{ route("profile") }}" wire:navigate

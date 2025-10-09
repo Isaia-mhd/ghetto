@@ -16,17 +16,17 @@ class Login extends Component
         'password' => 'required|min:6',
     ];
 
-    // public function login()
-    // {
-    //     $this->validate();
+    public function login()
+    {
+        $this->validate();
 
-    //     if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-    //         session()->regenerate();
-    //         return redirect()->intended('/dashboard'); // redirige après login
-    //     }
+        if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+            session()->regenerate();
+            return redirect()->route('profile');
+        }
 
-    //     $this->addError('email', 'Les identifiants sont incorrects.');
-    // }
+        $this->addError('email', 'Les identifiants sont incorrects.');
+    }
 
     public function render()
     {
