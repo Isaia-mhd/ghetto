@@ -38,6 +38,9 @@
             <button type="submit"
                 class="w-full bg-secondary text-mywhite text-xs font-semibold py-2 rounded-lg shadow-lg hover:opacity-90 transition cursor-pointer">Se
                 connecter</button>
+                @error('credentials')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
         </form>
 
         {{-- Divider --}}

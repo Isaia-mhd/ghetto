@@ -25,7 +25,7 @@ class Login extends Component
             return redirect()->route('profile');
         }
 
-        $this->addError('email', 'Les identifiants sont incorrects.');
+        $this->addError('credentials', 'Les identifiants sont incorrects.');
     }
 
     public function render()
