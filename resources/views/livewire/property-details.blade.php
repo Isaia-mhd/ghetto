@@ -84,8 +84,9 @@
             </div>
             {{-- book button --}}
             <div class="w-full mt-6 flex items-center justify-center">
-                <a href="" class=" text-xs text-mywhite bg-secondary  py-2 px-8 rounded-full">Reserver
-                    maintenant</a>
+                <button wire:click="openModal"
+                    class=" text-xs text-mywhite bg-secondary  py-2 px-8 cursor-pointer rounded-full">Reserver
+                    maintenant</button>
             </div>
             <div class="flex items-center justify-start !text-xs mt-6">
                 <a href="" class="text-blue-600"><i class="fa-solid fa-phone-volume px-2"></i>Contacter
@@ -94,73 +95,77 @@
         </div>
     </div>
     {{-- MAP --}}
-            <div class="w-full mt-6">
-                @include("components.map")
-            </div>
+    <div class="w-full mt-6">
+        @include('components.map')
+    </div>
 
-            {{-- REVIEWS --}}
+    {{-- REVIEWS --}}
+    <div class="w-full mt-6">
+        <h2 class="text-lg py-1">Avis <i class="fa-solid fa-star"></i> 5.0</h2>
+        {{-- Foreach reviews here --}}
+        <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-2">
             <div class="w-full mt-6">
-                <h2 class="text-lg py-1">Avis <i class="fa-solid fa-star"></i> 5.0</h2>
-                {{-- Foreach reviews here --}}
-                <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-2">
-                    <div class="w-full mt-6">
-                        <div class="w-full flex justify-start items-center gap-1">
-                            <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                            <div class="">
-                                <h3 class="text-sm font-semibold">John Doe</h3>
-                                <span class="text-xs">8 mai 2025</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Ab nobis
-                            magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                        </p>
-                    </div>
-                    <div class="w-full mt-6">
-                        <div class="w-full flex justify-start items-center gap-1">
-                            <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                            <div class="">
-                                <h3 class="text-sm font-semibold">John Doe</h3>
-                                <span class="text-xs">8 mai 2025</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Ab nobis
-                            magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                        </p>
-                    </div>
-                    <div class="w-full mt-6">
-                        <div class="w-full flex justify-start items-center gap-1">
-                            <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                            <div class="">
-                                <h3 class="text-sm font-semibold">John Doe</h3>
-                                <span class="text-xs">8 mai 2025</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Ab nobis
-                            magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                        </p>
-                    </div>
-                    <div class="w-full mt-6">
-                        <div class="w-full flex justify-start items-center gap-1">
-                            <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                            <div class="">
-                                <h3 class="text-sm font-semibold">John Doe</h3>
-                                <span class="text-xs">8 mai 2025</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Ab nobis
-                            magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                        </p>
+                <div class="w-full flex justify-start items-center gap-1">
+                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
+                    <div class="">
+                        <h3 class="text-sm font-semibold">John Doe</h3>
+                        <span class="text-xs">8 mai 2025</span>
                     </div>
                 </div>
+                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Ab nobis
+                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
+                </p>
             </div>
-
-            {{-- Button to show all reviews --}}
             <div class="w-full mt-6">
-                <button class="text-xs bg-secondary rounded-2xl py-2 px-4 cursor-pointer text-mywhite">Voir tous les
-                    avis</button>
+                <div class="w-full flex justify-start items-center gap-1">
+                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
+                    <div class="">
+                        <h3 class="text-sm font-semibold">John Doe</h3>
+                        <span class="text-xs">8 mai 2025</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Ab nobis
+                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
+                </p>
             </div>
+            <div class="w-full mt-6">
+                <div class="w-full flex justify-start items-center gap-1">
+                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
+                    <div class="">
+                        <h3 class="text-sm font-semibold">John Doe</h3>
+                        <span class="text-xs">8 mai 2025</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Ab nobis
+                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
+                </p>
+            </div>
+            <div class="w-full mt-6">
+                <div class="w-full flex justify-start items-center gap-1">
+                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
+                    <div class="">
+                        <h3 class="text-sm font-semibold">John Doe</h3>
+                        <span class="text-xs">8 mai 2025</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Ab nobis
+                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {{-- Button to show all reviews --}}
+    <div class="w-full mt-6">
+        <button class="text-xs bg-secondary rounded-2xl py-2 px-4 cursor-pointer text-mywhite">Voir tous les
+            avis</button>
+    </div>
+
+    @if($showModal)
+        @include("components.modal_booking")
+    @endif
 </div>
