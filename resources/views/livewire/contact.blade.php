@@ -1,6 +1,5 @@
-<div>
-    {{-- Be like water. --}}
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="w-full max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {{-- Be like water. --}}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
             {{-- Form field --}}
@@ -23,39 +22,39 @@
                     </div>
                 @endif
 
-                <form action="" method="POST" class="space-y-4">
+                <form action="" method="POST" class="space-y-4 text-xs">
                     @csrf
 
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Nom *</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nom <span class="text-red-500">*</span></label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}"
-                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-indigo-400 p-2"
+                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm outline-none focus:ring-primary p-2"
                             required>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">E-mail *</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700">E-mail <span class="text-red-500">*</span></label>
                             <input type="email" name="email" id="email" value="{{ old('email') }}"
-                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-primary p-2"
+                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm outline-none focus:ring-primary p-2"
                                 required>
                         </div>
 
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
                             <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-primary p-2">
+                                class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm outline-none focus:ring-primary p-2">
                         </div>
                     </div>
 
                     <div>
-                        <label for="subject" class="block text-sm font-medium text-gray-700">Sujet *</label>
+                        <label for="subject" class="block text-sm font-medium text-gray-700">Sujet <span class="text-red-500">*</span></label>
                         <input type="text" name="subject" id="subject" value="{{ old('subject') }}"
-                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-primary p-2">
+                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm outline-none focus:ring-primary p-2">
                     </div>
 
                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-700">Message *</label>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message <span class="text-red-500">*</span></label>
                         <textarea name="message" id="message" rows="5" required
                             class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-2 focus:ring-offset-1 focus:ring-indigo-400 p-2">{{ old('message') }}</textarea>
                     </div>
@@ -63,10 +62,10 @@
                     <div class="flex items-center justify-between">
                         <button type="submit"
                             class="text-xs inline-flex items-center gap-2 bg-secondary text-mywhite px-4 py-2 rounded-full font-medium cursor-pointer">
-                            Envoyer le message
+                            Envoyer
                         </button>
 
-                        <p class="text-sm text-gray-500">* champs obligatoires</p>
+                        <p class="text-xs text-gray-500"><span class="text-red-500">*</span> champs obligatoires</p>
                     </div>
                 </form>
             </div>
@@ -115,4 +114,3 @@
             </div>
         </div>
     </div>
-</div>
