@@ -7,6 +7,7 @@ use Livewire\Component;
 class NewProperty extends Component
 {
     public $step = 1;
+    public $progress = 25;
     public $title;
     public $category;
     public $description;
@@ -28,10 +29,12 @@ class NewProperty extends Component
     public function next()
     {
         $this->step++;
+        $this->progress += 25;
     }
     public function back()
     {
         $this->step--;
+        $this->progress -= 25;
     }
     public function setParking()
     {
