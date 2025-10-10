@@ -8,7 +8,7 @@
 
 <div>
     <div class="w-full flex justify-between">
-        <label for="wifi" class="block text-gray-700 text-xs font-medium mb-1">Wi-fi</label>
+        <label for="wifi" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-wifi"></i> Wi-fi</label>
         @if ($wifi)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setWifi' id="wifi"></i>
         @else
@@ -23,7 +23,7 @@
 
 <div>
     <div class="w-full flex justify-between">
-        <label for="kitchen" class="block text-gray-700 text-xs font-medium mb-1">Kitchen</label>
+        <label for="kitchen" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-kitchen-set"></i> Kitchen</label>
         @if ($kitchen)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setKitchen' id="kitchen"></i>
         @else
@@ -37,7 +37,7 @@
 </div>
 <div>
     <div class="w-full flex justify-between">
-        <label for="tv" class="block text-gray-700 text-xs font-medium mb-1">TV</label>
+        <label for="tv" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-tv"></i> TV</label>
         @if ($tv)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setTv' id="tv"></i>
         @else
@@ -51,7 +51,7 @@
 </div>
 <div>
     <div class="w-full flex justify-between">
-        <label for="airConditioner" class="block text-gray-700 text-xs font-medium mb-1">Air Conditioner</label>
+        <label for="airConditioner" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-fan"></i> Air Conditioner</label>
         @if ($airConditioner)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setAirConditioner' id="airConditioner"></i>
         @else
@@ -65,7 +65,7 @@
 </div>
 <div>
     <div class="w-full flex justify-between">
-        <label for="washingMachine" class="block text-gray-700 text-xs font-medium mb-1">Washing Machine</label>
+        <label for="washingMachine" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-soap"></i> Washing Machine</label>
         @if ($washingMachine)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setWashingMachine' id="washingMachine"></i>
         @else
