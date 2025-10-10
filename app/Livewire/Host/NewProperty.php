@@ -25,7 +25,11 @@ class NewProperty extends Component
     public $pricePerDay;
     public $pricePerMonth;
     public $pricePerYear;
-
+    public $guest;
+    public $isOffered;
+    public $offeredPrice;
+    public $images;
+    public $coverImage;
 
     public function next()
     {
@@ -60,6 +64,10 @@ class NewProperty extends Component
     public function setWashingMachine()
     {
         $this->washingMachine = !$this->washingMachine;
+    }
+     public function setIsOffered()
+    {
+        $this->isOffered = !$this->isOffered;
     }
     public function render()
     {
