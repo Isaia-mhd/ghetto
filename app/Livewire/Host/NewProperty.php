@@ -9,6 +9,7 @@ class NewProperty extends Component
     public $step = 1;
     public $progress = 25;
     public $title;
+    public $address;
     public $category;
     public $description;
     public $room;

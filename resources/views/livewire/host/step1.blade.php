@@ -2,7 +2,7 @@
 <div class="">
     <h1 class="text-md font-bold text-gray-800 mb-6 flex items-center gap-2">
         <i class="fa-solid fa-plus text-blue-600"></i>
-        IInformations générales
+        Informations générales
     </h1>
 </div>
 
@@ -13,6 +13,17 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : Charmant studio en centre-ville">
     @error('title')
+        <p class="text-red-500 text-sm">{{ $message }}</p>
+    @enderror
+</div>
+
+{{-- Title --}}
+<div>
+    <label for="address" class="block text-gray-700 text-xs font-medium mb-1">Adresse</label>
+    <input type="text" wire:model="address" id="address"
+        class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
+        placeholder="Ex : Ambalavola Mahajanga">
+    @error('address')
         <p class="text-red-500 text-sm">{{ $message }}</p>
     @enderror
 </div>
