@@ -14,6 +14,11 @@ class NewProperty extends Component
     public $bed;
     public $bath;
     public $parking = false;
+    public $wifi;
+    public $kitchen;
+    public $tv;
+    public $airConditioner;
+    public $washingMachine;
     public function next()
     {
         $this->step++;
@@ -25,6 +30,26 @@ class NewProperty extends Component
     public function setParking()
     {
         $this->parking = !$this->parking;
+    }
+    public function setWifi()
+    {
+        $this->wifi = !$this->wifi;
+    }
+    public function setKitchen()
+    {
+        $this->kitchen = !$this->kitchen;
+    }
+    public function setTv()
+    {
+        $this->tv = !$this->tv;
+    }
+    public function setAirConditioner()
+    {
+        $this->airConditioner = !$this->airConditioner;
+    }
+    public function setWashingMachine()
+    {
+        $this->washingMachine = !$this->washingMachine;
     }
     public function render()
     {
