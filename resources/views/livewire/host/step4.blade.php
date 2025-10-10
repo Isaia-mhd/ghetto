@@ -2,7 +2,7 @@
 <div class="">
     <h1 class="text-md font-bold text-gray-800 mb-6 flex items-center gap-2">
         <i class="fa-solid fa-plus text-blue-600"></i>
-        Etape {{ $step }}
+        Tarifs
     </h1>
 </div>
 
