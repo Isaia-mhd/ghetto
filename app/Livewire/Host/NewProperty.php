@@ -19,6 +19,12 @@ class NewProperty extends Component
     public $tv;
     public $airConditioner;
     public $washingMachine;
+    public $pricePerNight;
+    public $pricePerDay;
+    public $pricePerMonth;
+    public $pricePerYear;
+
+
     public function next()
     {
         $this->step++;
