@@ -4,6 +4,8 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Booking;
 use App\Livewire\Cart;
 use App\Livewire\Home;
+use App\Livewire\Host\Dashboard;
+use App\Livewire\Host\NewProperty;
 use App\Livewire\Property;
 use App\Livewire\Contact;
 use App\Livewire\About;
@@ -19,7 +21,13 @@ Route::get('contact', Contact::class)->name('contact');
 Route::get('about', About::class)->name('about');
 
 Route::middleware("auth")->group(function(){
-    Route::get('/dashboard', UserProfile::class)->name('profile');
+    Route::get('profile', UserProfile::class)->name('profile');
+    Route::get('profile/books', UserProfile::class)->name('profile.books');
+    Route::get('profile/favorites', UserProfile::class)->name('profile.favorites');
+    Route::get('dashboard', Dashboard::class)->name('dashboard');
+    // Route::get('profile/dashboard/house', UserProfile::class)->name('profile.dashboard.house');
+    Route::get('dashboard/properties/new', Dashboard::class)->name('dashboard.house.new');
+
 });
 
 Route::middleware("guest")->group(function(){

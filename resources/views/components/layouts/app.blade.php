@@ -17,7 +17,10 @@
 </head>
 <body>
     <div class="">
-        @include("components.header")
+        @if (!Route::is("dashboard*"))
+            @include("components.header")
+        @else
+        @endif
     </div>
     <section class="w-full">
         {{ $slot }}

@@ -1,7 +1,7 @@
 <div class="bg-white rounded-2xl shadow p-8 flex flex-col md:flex-row gap-8 items-center md:items-start">
     <img src="{{ asset('assets/logo.jpg') }}" alt="Profil"
         class="w-32 h-32 rounded-full border-4 border-primary shadow-md">
-    <div class="flex-1">
+    <div class="flex-1" >
         <h2 class="text-2xl font-bold text-myblack">{{ auth()->user()->name }}</h2>
         <p class="text-gray-600 text-xs mb-4">Membre depuis mars 2024</p>
             <div class="grid sm:grid-cols-2 gap-4 text-sm">
