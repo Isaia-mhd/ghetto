@@ -6,38 +6,50 @@
     </h1>
 </div>
 
-{{-- Title --}}
+{{-- Room --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Titre</label>
-    <input type="text" wire:model="title"
+    <label for="room" class="block text-gray-700 text-xs font-medium mb-1">Room</label>
+    <input type="number" wire:model='room' id="room"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
-        placeholder="Ex : Charmant studio en centre-ville">
-    @error('title')
+        placeholder="Ex : 4">
+    @error('room')
         <p class="text-red-500 text-sm">{{ $message }}</p>
     @enderror
 </div>
 
-{{-- Category --}}
+{{-- Bed --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Categorie</label>
-    <select wire:model='category'  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
-        <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
-    </select>
-    @error('category')
+    <label for="bed" class="block text-gray-700 text-xs font-medium mb-1">Bed</label>
+    <input type="number" wire:model="bed" id="bed"
+        class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
+        placeholder="Ex : 3">
+    @error('bed')
         <p class="text-red-500 text-sm">{{ $message }}</p>
     @enderror
 </div>
 
-{{-- Description --}}
+{{-- Bath --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Description</label>
-    <textarea wire:model="description" rows="4"
+    <label for="bath" class="block text-gray-700 text-xs font-medium mb-1">Bath</label>
+    <input type="number" wire:model="bath" id="bath"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
-        placeholder="Décrivez votre logement..."></textarea>
-    @error('description')
+        placeholder="Ex : 1">
+    @error('bath')
+        <p class="text-red-500 text-sm">{{ $message }}</p>
+    @enderror
+</div>
+
+<div>
+    <div class="w-full flex justify-between">
+        <label for="parking" class="block text-gray-700 text-xs font-medium mb-1">Parking</label>
+        @if ($parking)
+            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setParking' id="parking"></i>
+        @else
+            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setParking' id="parking"></i>
+        @endif
+    </div>
+
+    @error('bath')
         <p class="text-red-500 text-sm">{{ $message }}</p>
     @enderror
 </div>

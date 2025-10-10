@@ -8,8 +8,8 @@
 
 {{-- Title --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Titre</label>
-    <input type="text" wire:model="title"
+    <label for="title" class="block text-gray-700 text-xs font-medium mb-1">Titre</label>
+    <input type="text" wire:model="title" id="title"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : Charmant studio en centre-ville">
     @error('title')
@@ -19,12 +19,11 @@
 
 {{-- Category --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Categorie</label>
-    <select wire:model='category'  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
+    <label for="category" class="block text-gray-700 text-xs font-medium mb-1">Categorie</label>
+    <select wire:model='category' id="category"  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
         <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
-        <option value="room">Chambre</option>
+        <option value="villa">Villa</option>
+        <option value="boutic">boutique</option>
     </select>
     @error('category')
         <p class="text-red-500 text-sm">{{ $message }}</p>
@@ -33,8 +32,8 @@
 
 {{-- Description --}}
 <div>
-    <label class="block text-gray-700 text-xs font-medium mb-1">Description</label>
-    <textarea wire:model="description" rows="4"
+    <label for="description" class="block text-gray-700 text-xs font-medium mb-1">Description</label>
+    <textarea wire:model="description" id="description" rows="4"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Décrivez votre logement..."></textarea>
     @error('description')
