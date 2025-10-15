@@ -1,5 +1,5 @@
 <div class="relative w-[250px] bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-    <button wire:click='showImageCarousel({{ $property->id }})' class="cursor-pointer">
+    <button wire:click='showImageCarousel()' class="cursor-pointer">
         <img class="w-full h-48 object-cover" src="{{ asset('storage/' . $property->coverImage) }}" alt="image">
     </button>
     <div class="absolute top-0 right-0 w-[120px] py-1 px-2 bg-mywhite text-xs rounded-tr-xl rounded-bl-xl">
@@ -45,12 +45,13 @@
 
     </div>
 
+    {{-- Carousel --}}
     @if ($showImageModal)
         <div class="fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-500 animate-fadeIn">
-            {{-- Fond semi-transparent --}}
+
             <div class="absolute inset-0 bg-myblack/50 bg-opacity-50" wire:click="closeImageCarousel"></div>
 
-            {{-- Carousel content --}}
+
             <div class="bg-white rounded-xl shadow-lg p-6 w-4xl h-screen z-10 transform transition-transform duration-500 scale-95 animate-zoomIn">
                     @livewire('image-carousel', ['images' => $images], key($property->id))
             </div>

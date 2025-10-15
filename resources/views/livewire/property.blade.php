@@ -18,7 +18,7 @@
 
     <div class="mt-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-6">
         @foreach ($properties as $property)
-            @include('components.property_card', ['property' => $property])
+            @livewire('property-card', ['property' => $property], key($property->id))
         @endforeach
     </div>
 </div>
