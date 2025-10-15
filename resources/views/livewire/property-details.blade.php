@@ -6,8 +6,8 @@
 
             <div class="w-full flex justify-between items-center">
                 <div class="">
-                    <h2 class="text-lg">Well Furnished Apartment</h2>
-                    <span class="text-xs">100 Smart Street, LA, USA</span>
+                    <h2 class="text-lg">{{ $property->name }}</h2>
+                    <span class="text-xs">{{ $property->adress }}</span>
                 </div>
                 <div class="flex justify-end items-center gap-2 text-xl">
                     <i class="fa-regular fa-heart"></i>
@@ -45,21 +45,14 @@
 
             <div class="w-full mt-6">
                 <h2 class="text-lg py-1">Description de l’appartement</h2>
-                <p class="text-xs font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                <p class="text-xs font-light">{{ $property->description }}</p>
             </div>
             <div class="w-full mt-6">
                 <h2 class="text-lg py-1">Équipements proposés</h2>
                 <ul class="text-xs text-myblack font-light grid grid-cols-2">
-                    <li>Wi-Fi gratuit</li>
-                    <li>Television avec Netflix</li>
-                    <li>Cuisine</li>
-                    <li>Machine à laver</li>
-                    <li>Climatiseur</li>
+                    @foreach ($property->equipments as $equipment)
+                        <li>{{ $equipment }}</li>
+                    @endforeach
                 </ul>
             </div>
             <div class="w-full mt-6">
@@ -77,10 +70,10 @@
             <h2 class="text-sm font-semibold">Tarifs</h2>
             <hr>
             <div class="flex flex-col my-3 text-xs space-y-2">
-                <span>Par jour: $450</span>
-                <span> Par nuit: $450</span>
-                <span>Par mois: $450</span>
-                <span>Par an: $450</span>
+                <span>Par jour: {{ $property->pricePerDay }} Ariary</span>
+                <span> Par nuit: {{ $property->pricePerNight }} Ariary</span>
+                <span>Par mois: {{ $property->pricePerMonth }} Ariary</span>
+                <span>Par an: {{ $property->pricePerYear }} Ariary</span>
             </div>
             {{-- book button --}}
             <div class="w-full mt-6 flex items-center justify-center">

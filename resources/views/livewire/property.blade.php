@@ -16,10 +16,9 @@
         </div>
     </div>
 
-    <!-- ✅ GRID corrigé -->
     <div class="mt-6 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-6">
-        @for ($i = 0; $i < 8; $i++)
-            @include('components.property_card')
-        @endfor
+        @foreach ($properties as $property)
+            @include('components.property_card', ['property' => $property])
+        @endforeach
     </div>
 </div>

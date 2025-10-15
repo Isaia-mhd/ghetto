@@ -13,7 +13,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : 200">
     @error('pricePerNight')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -24,7 +24,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : 200">
     @error('pricePerDay')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -35,7 +35,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : 200">
     @error('pricePerMonth')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -46,7 +46,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : 200">
     @error('pricePerYear')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 

@@ -6,14 +6,44 @@
     </h1>
 </div>
 
-{{-- Title --}}
+{{-- Category --}}
 <div>
-    <label for="title" class="block text-gray-700 text-xs font-medium mb-1">Titre</label>
-    <input type="text" wire:model="title" id="title"
+    <label for="category" class="block text-gray-700 text-xs font-medium mb-1">Categorie</label>
+    <select wire:model='categoryId' id="category"  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
+        <option value="">Choisir la categorie</option>
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ Str::title($category->name) }}</option>
+        @endforeach
+    </select>
+    @error('categoryId')
+        <p class="text-red-500 text-xs">{{ $message }}</p>
+    @enderror
+</div>
+
+{{-- Hotel list --}}
+@if ($isRoomCategory)
+    <div>
+    <label for="hotel" class="block text-gray-700 text-xs font-medium mb-1">Hotel</label>
+    <select wire:model='hotelId' id="hotel"  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
+        <option value="">Choisir l'hotel</option>
+        @foreach ($hotels as $hotel)
+            <option value="{{ $hotel->id }}">{{ Str::title($hotel->name) }}</option>
+        @endforeach
+    </select>
+    @error('hotelId')
+        <p class="text-red-500 text-xs">{{ $message }}</p>
+    @enderror
+    </div>
+@endif
+
+{{-- Name --}}
+<div>
+    <label for="name" class="block text-gray-700 text-xs font-medium mb-1">Nom</label>
+    <input type="text" wire:model="name" id="name"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : Charmant studio en centre-ville">
-    @error('title')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+    @error('name')
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -24,20 +54,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : Ambalavola Mahajanga">
     @error('address')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
-    @enderror
-</div>
-
-{{-- Category --}}
-<div>
-    <label for="category" class="block text-gray-700 text-xs font-medium mb-1">Categorie</label>
-    <select wire:model='category' id="category"  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
-        <option value="room">Chambre</option>
-        <option value="villa">Villa</option>
-        <option value="boutic">boutique</option>
-    </select>
-    @error('category')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -48,7 +65,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Décrivez votre logement..."></textarea>
     @error('description')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 

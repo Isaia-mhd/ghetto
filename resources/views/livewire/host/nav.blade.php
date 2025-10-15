@@ -10,6 +10,11 @@
         <i class="fa-solid fa-bell text-green-600"></i>
         <span>Notifications</span>
     </a>
+    <a href="{{ route('dashboard.hotels') }}" wire:navigate
+        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
+        <i class="fa-solid fa-hotel text-pink-600"></i>
+        <span>Gerer l'hotel</span>
+    </a>
     <a href="{{ route('profile') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
         <i class="fa-solid fa-gear text-myblack"></i>

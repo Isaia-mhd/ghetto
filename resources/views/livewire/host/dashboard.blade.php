@@ -99,6 +99,10 @@
                 </div>
             @elseif(Route::is('dashboard.house.new'))
                 @livewire('host.new-property')
+            @elseif(Route::is('dashboard.hotels'))
+                @livewire('host.hotels')
+            @elseif(Route::is('dashboard.hotels.new'))
+                @livewire('host.new-hotel')
             @endif
         </div>
     </main>

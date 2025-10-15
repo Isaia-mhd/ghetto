@@ -9,20 +9,10 @@
 
         <!-- Container scrollable -->
         <div id="gallery" class="flex gap-3 overflow-x-auto scroll-smooth scrollbar-hide">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
-            <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                 class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
+            @foreach ($property->images as $image)
+                <img src="{{ asset('storage/'. $image) }}" alt="image"
+                    class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
+            @endforeach
         </div>
 
         <!-- Bouton droit -->

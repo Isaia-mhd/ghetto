@@ -14,7 +14,7 @@
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
         placeholder="Ex : 200">
     @error('guest')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 <div>
@@ -28,18 +28,18 @@
     </div>
 
     @error('isOffered')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 {{-- price offered --}}
 @if ($isOffered)
     <div>
-        <label for="offeredPrice" class="block text-gray-700 text-xs font-medium mb-1">Prix d'offre</label>
-        <input type="number" wire:model='offeredPrice' id="offeredPrice"
+        <label for="discount" class="block text-gray-700 text-xs font-medium mb-1">Remise (%)</label>
+        <input type="number" wire:model='discount' id="discount"
             class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
-            placeholder="Ex : 200">
-        @error('offeredPrice')
-            <p class="text-red-500 text-sm">{{ $message }}</p>
+            placeholder="Ex : 10">
+        @error('discount')
+            <p class="text-red-500 text-xs">{{ $message }}</p>
         @enderror
     </div>
 @endif
@@ -47,10 +47,10 @@
 {{-- coverImage  --}}
 <div>
     <label for="coverImage" class="block text-gray-700 text-xs font-medium mb-1">Image de couverture</label>
-    <input type="file" wire:model='coverImage' id="coverImage"
+    <input type="file" wire:model='coverImage' accept="image/png, image/jpg, image/jpeg, image/webp" id="coverImage"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
     @error('coverImage')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -60,7 +60,7 @@
     <input type="file" wire:model='images' id="images"
         class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200" multiple>
     @error('images')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
@@ -71,9 +71,9 @@
         <i class="fa-solid fa-arrow-left"></i>
         Retour
     </button>
-    <button wire:click='next'
+    <button wire:click='save'
         class="flex items-center text-xs cursor-pointer gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium shadow">
         <i class="fa-solid fa-check"></i>
-        Suivant
+        Publlier
     </button>
 </div>

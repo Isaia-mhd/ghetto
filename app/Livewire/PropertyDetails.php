@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Property;
 use Livewire\Component;
 
 class PropertyDetails extends Component
@@ -10,6 +11,12 @@ class PropertyDetails extends Component
     public $guest;
     public $chekIn;
     public $chekOut;
+    public $property;
+
+    public function mount($property)
+    {
+        $this->property = Property::find($property);
+    }
 
     public function openModal()
     {
@@ -20,6 +27,7 @@ class PropertyDetails extends Component
     {
         $this->showModal = false;
     }
+
     public function render()
     {
         return view('livewire.property-details');

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/properties', Property::class)->name('property');
-Route::get('/properties/1', PropertyDetails::class)->name('property.details');
+Route::get('/properties/{property}', PropertyDetails::class)->name('property.details');
 Route::get('contact', Contact::class)->name('contact');
 Route::get('about', About::class)->name('about');
 
@@ -25,6 +25,8 @@ Route::middleware("auth")->group(function(){
     Route::get('profile/books', UserProfile::class)->name('profile.books');
     Route::get('profile/favorites', UserProfile::class)->name('profile.favorites');
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+    Route::get('dashboard/hotels', Dashboard::class)->name('dashboard.hotels');
+    Route::get('dashboard/hotels/new', Dashboard::class)->name('dashboard.hotels.new');
     // Route::get('profile/dashboard/house', UserProfile::class)->name('profile.dashboard.house');
     Route::get('dashboard/properties/new', Dashboard::class)->name('dashboard.house.new');
 

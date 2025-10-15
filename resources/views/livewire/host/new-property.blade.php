@@ -5,6 +5,9 @@
             Nouvel Appartement
         </h1>
     </div>
+    @if (session('success'))
+        <span class="text-green-500 text-xs font-bold text-center">{{ session('success') }}</span>
+    @endif
 
     {{-- Progress BAR --}}
     {{-- <div class="w-full ">

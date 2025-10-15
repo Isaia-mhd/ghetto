@@ -8,22 +8,23 @@
 
 <div>
     <div class="w-full flex justify-between">
-        <label for="wifi" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-wifi"></i> Wi-fi</label>
-        @if ($wifi)
-            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setWifi' id="wifi"></i>
+        <label for="parking" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-car"></i> Parking</label>
+        @if ($parking)
+            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setParking' id="parking"></i>
         @else
-            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setWifi' id="wifi"></i>
+            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setParking' id="parking"></i>
         @endif
     </div>
 
-    @error('wifi')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+    @error('parking')
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
 
+
 <div>
     <div class="w-full flex justify-between">
-        <label for="kitchen" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-kitchen-set"></i> Kitchen</label>
+        <label for="kitchen" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-kitchen-set"></i> Cuisine</label>
         @if ($kitchen)
             <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setKitchen' id="kitchen"></i>
         @else
@@ -32,51 +33,28 @@
     </div>
 
     @error('kitchen')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
+        <p class="text-red-500 text-xs">{{ $message }}</p>
     @enderror
 </div>
-<div>
-    <div class="w-full flex justify-between">
-        <label for="tv" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-tv"></i> TV</label>
-        @if ($tv)
-            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setTv' id="tv"></i>
-        @else
-            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setTv' id="tv"></i>
-        @endif
-    </div>
 
-    @error('tv')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
-    @enderror
-</div>
-<div>
-    <div class="w-full flex justify-between">
-        <label for="airConditioner" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-fan"></i> Air Conditioner</label>
-        @if ($airConditioner)
-            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setAirConditioner' id="airConditioner"></i>
-        @else
-            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setAirConditioner' id="airConditioner"></i>
-        @endif
-    </div>
 
-    @error('airConditioner')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
-    @enderror
-</div>
 <div>
-    <div class="w-full flex justify-between">
-        <label for="washingMachine" class="block text-gray-700 text-xs font-medium mb-1"><i class="fa-solid fa-soap"></i> Washing Machine</label>
-        @if ($washingMachine)
-            <i class="fa-solid fa-toggle-on text-2xl cursor-pointer" wire:click='setWashingMachine' id="washingMachine"></i>
-        @else
-            <i class="fa-solid fa-toggle-off text-2xl cursor-pointer" wire:click='setWashingMachine' id="washingMachine"></i>
-        @endif
-    </div>
-
-    @error('washingMachine')
-        <p class="text-red-500 text-sm">{{ $message }}</p>
-    @enderror
+    <label for="newEquipment" class="block text-gray-700 text-xs font-medium py-1">Ajouter un équipement</label>
+    <input wire:model.defer="newEquipment" id="newEquipment" wire:keydown.enter="addEquipment"
+        class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
+        placeholder="Ex : Wi-Fi">
+    {{-- <button type="button" wire:click="addEquipment" class="bg-blue-500 text-xs py-2 text-white px-4 rounded">Ajouter</button> --}}
 </div>
+
+<ul class=" flex gap-1">
+    @foreach($equipments as $index => $equipment)
+        <li class="flex justify-between items-center gap-2 mb-1 text-xs py-1 bg-green-200 rounded-sm px-2">
+            {{ $equipment }}
+            <button type="button" wire:click="removeEquipment({{ $index }})" class="text-red-800 cursor-pointer">✖</button>
+        </li>
+    @endforeach
+</ul>
+
 
 {{-- Next button --}}
 <div class="pt-4 flex justify-end gap-4">
