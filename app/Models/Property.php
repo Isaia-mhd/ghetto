@@ -13,4 +13,9 @@ class Property extends Model
         "images" => 'array',
         "equipments" => 'array'
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

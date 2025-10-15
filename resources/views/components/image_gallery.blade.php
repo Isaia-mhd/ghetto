@@ -9,7 +9,7 @@
 
         <!-- Container scrollable -->
         <div id="gallery" class="flex gap-3 overflow-x-auto scroll-smooth scrollbar-hide">
-            @foreach ($property->images as $image)
+            @foreach (json_decode($property->images) as $image)
                 <img src="{{ asset('storage/'. $image) }}" alt="image"
                     class="w-64 h-48 object-cover rounded-md cursor-pointer hover:scale-105 transition duration-500">
             @endforeach

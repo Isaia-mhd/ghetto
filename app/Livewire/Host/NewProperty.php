@@ -140,7 +140,7 @@ class NewProperty extends Component
                 $validated['images'][] = $image->store('uploads/property', 'public');
             }
         }
-        $validated['images'] = json_encode($validated['images']);
+        $validated['images'] = json_encode($validated['images'], JSON_OBJECT_AS_ARRAY);
         Property::create([
             ...$validated,
             'owner_id' => auth()->id(),

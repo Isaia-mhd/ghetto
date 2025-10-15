@@ -13,9 +13,9 @@ class PropertyDetails extends Component
     public $chekOut;
     public $property;
 
-    public function mount($property)
+    public function mount(Property $property)
     {
-        $this->property = Property::find($property);
+        $this->property = $property;
     }
 
     public function openModal()

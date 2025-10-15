@@ -1,162 +1,96 @@
 <div class="w-full max-w-[90%] mx-auto py-6">
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+
     @include('components.image_gallery')
+
     <div class="w-full flex flex-col lg:flex-row gap-8">
-        <div class="w-full  ">
-
-            <div class="w-full flex justify-between items-center">
-                <div class="">
-                    <h2 class="text-lg">{{ $property->name }}</h2>
-                    <span class="text-xs">{{ $property->adress }}</span>
+        <div class="w-full">
+            <div class="w-full flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold">{{ $property->name }}</h1>
+                    <span class="text-sm text-gray-600">{{ $property->address }}</span>
                 </div>
-                <div class="flex justify-end items-center gap-2 text-xl">
-                    <i class="fa-regular fa-heart"></i>
-                    <i class="fa-solid fa-share-nodes"></i>
-                </div>
-            </div>
-
-            <div class="w-full flex flex-wrap justify-between items-center gap-1 mt-6">
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-bed text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">3 chambres</p>
-                </div>
-
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-bath text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">1 douche</p>
-                </div>
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-car text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">Parking</p>
-                </div>
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-bed text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">3 chambres</p>
-                </div>
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-bed text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">3 chambres</p>
-                </div>
-                <div class="w-[80px] h-[80px] rounded-xl bg-gray-500 flex flex-col items-center justify-center gap-2">
-                    <i class="fa-solid fa-bed text-2xl text-mywhite"></i>
-                    <p class="text-xs text-mywhite">3 chambres</p>
+                <div class="flex items-center gap-4 text-xl text-gray-500">
+                    <i class="fa-regular fa-heart hover:text-red-500 cursor-pointer transition-colors"></i>
+                    <i class="fa-solid fa-share-nodes hover:text-blue-500 cursor-pointer transition-colors"></i>
                 </div>
             </div>
 
-            <div class="w-full mt-6">
-                <h2 class="text-lg py-1">Description de l’appartement</h2>
-                <p class="text-xs font-light">{{ $property->description }}</p>
+            {{-- Mini Details --}}
+            <div class="w-full flex flex-wrap gap-4 mt-6 p-4 bg-gray-100 rounded-xl">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-users text-2xl text-secondary"></i>
+                    <p class="text-xs font-medium">{{ $property->guest }} personnes</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bed text-2xl text-secondary"></i>
+                    <p class="text-xs font-medium">{{ $property->room }} chambre{{ $property->room > 1 ? 's' : '' }}</p>
+                </div>
+                @if($property->bed)
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bed-pulse text-2xl text-secondary"></i>
+                    <p class="text-xs font-medium">{{ $property->bed }} lit{{ $property->bed > 1 ? 's' : '' }}</p>
+                </div>
+                @endif
+                @if($property->bathIntern || $property->bathExtern)
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bath text-2xl text-secondary"></i>
+                    <p class="text-xs font-medium">
+                        {{ ($property->bathIntern ?? 0) + ($property->bathExtern ?? 0) }} salle{{ (($property->bathIntern ?? 0) + ($property->bathExtern ?? 0)) > 1 ? 's' : '' }} de bain
+                    </p>
+                </div>
+                @endif
+                @if($property->toiletIntern || $property->toiletExtern)
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-toilet text-2xl text-secondary"></i>
+                    <p class="text-xs font-medium">
+                        {{ ($property->toiletIntern ?? 0) + ($property->toiletExtern ?? 0) }} toilette{{ (($property->toiletIntern ?? 0) + ($property->toiletExtern ?? 0)) > 1 ? 's' : '' }}
+                    </p>
+                </div>
+                @endif
             </div>
-            <div class="w-full mt-6">
-                <h2 class="text-lg py-1">Équipements proposés</h2>
-                <ul class="text-xs text-myblack font-light grid grid-cols-2">
-                    @foreach ($property->equipments as $equipment)
-                        <li>{{ $equipment }}</li>
-                    @endforeach
-                </ul>
+
+
+            {{-- Description --}}
+            <div class="w-full my-6">
+                <h2 class="text-md font-semibold mb-2">Description de la propriété</h2>
+                <p class="text-gray-700 text-xs leading-relaxed">{{ $property->description }}</p>
             </div>
-            <div class="w-full mt-6">
-                <h2 class="text-lg py-1">Sécurité et hygiène</h2>
-                <ul class="text-xs text-myblack font-light grid grid-cols-2">
-                    <li>Nettoyage quotidien</li>
-                    <li>Extincteurs</li>
-                    <li>Désinfections et stérilisations</li>
-                    <li>Smoke Detectors</li>
-                </ul>
-            </div>
+
+
+            {{-- EQUIPMENTS --}}
+            @include("components.equipments_details")
+
         </div>
-        {{-- Card of button to book --}}
-        <div class="w-full md:w-[300px] h-min shadow-md shadow-gray-200 rounded-2xl py-4 px-4">
-            <h2 class="text-sm font-semibold">Tarifs</h2>
-            <hr>
-            <div class="flex flex-col my-3 text-xs space-y-2">
-                <span>Par jour: {{ $property->pricePerDay }} Ariary</span>
-                <span> Par nuit: {{ $property->pricePerNight }} Ariary</span>
-                <span>Par mois: {{ $property->pricePerMonth }} Ariary</span>
-                <span>Par an: {{ $property->pricePerYear }} Ariary</span>
-            </div>
-            {{-- book button --}}
-            <div class="w-full mt-6 flex items-center justify-center">
-                <button wire:click="openModal"
-                    class=" text-xs text-mywhite bg-secondary  py-2 px-8 cursor-pointer rounded-full">Reserver
-                    maintenant</button>
-            </div>
-            <div class="flex items-center justify-start !text-xs mt-6">
-                <a href="" class="text-blue-600"><i class="fa-solid fa-phone-volume px-2"></i>Contacter
-                    l’hôte</a>
-            </div>
-        </div>
+
+        {{-- Booking Card and Price details --}}
+        @include("components.bookBtn_and_price_card")
     </div>
+
     {{-- MAP --}}
-    <div class="w-full mt-6">
-        @include('components.map')
+    @if($property->location)
+        <div class="w-full mt-6">
+            <h2 class="text-md font-semibold mb-2">Emplacement</h2>
+            @include('components.map')
+        </div>
+    @endif
+
+    {{-- Hote info --}}
+    <div class="my-6">
+        <h2 class="text-md font-semibold mb-4">Rencontrez votre hôte</h2>
+        <div class="flex items-center gap-4 p-4 border border-gray-50 rounded-lg bg-white shadow-md">
+            <img src="{{ asset('assets/logo.jpg') }}" alt="Profile de l'hôte" class="w-16 h-16 rounded-full object-cover border-2 border-blue-600">
+            <div>
+                <h3 class="text-xl font-bold text-gray-900">{{ $property->owner->name ?? 'Hôte inconnu' }}</h3>
+                <p class="text-sm text-gray-500">Propriétaire | Membre depuis {{ $property->owner->created_at->format('d M Y') ?? '' }}</p>
+            </div>
+            <a href="" class="ml-auto text-secondary text-xs cursor-pointer hover:bg-secondary hover:text-mywhite font-medium border border-secondary px-4 py-2 rounded-full transition duration-300">
+                Contacter l'hôte
+            </a>
+        </div>
     </div>
 
     {{-- REVIEWS --}}
-    <div class="w-full mt-6">
-        <h2 class="text-lg py-1">Avis <i class="fa-solid fa-star"></i> 5.0</h2>
-        {{-- Foreach reviews here --}}
-        <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <div class="w-full mt-6">
-                <div class="w-full flex justify-start items-center gap-1">
-                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                    <div class="">
-                        <h3 class="text-sm font-semibold">John Doe</h3>
-                        <span class="text-xs">8 mai 2025</span>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Ab nobis
-                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                </p>
-            </div>
-            <div class="w-full mt-6">
-                <div class="w-full flex justify-start items-center gap-1">
-                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                    <div class="">
-                        <h3 class="text-sm font-semibold">John Doe</h3>
-                        <span class="text-xs">8 mai 2025</span>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Ab nobis
-                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                </p>
-            </div>
-            <div class="w-full mt-6">
-                <div class="w-full flex justify-start items-center gap-1">
-                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                    <div class="">
-                        <h3 class="text-sm font-semibold">John Doe</h3>
-                        <span class="text-xs">8 mai 2025</span>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Ab nobis
-                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                </p>
-            </div>
-            <div class="w-full mt-6">
-                <div class="w-full flex justify-start items-center gap-1">
-                    <img src="{{ asset('assets/logo.jpg') }}" alt="profile" class="w-15 h-15 rounded-full">
-                    <div class="">
-                        <h3 class="text-sm font-semibold">John Doe</h3>
-                        <span class="text-xs">8 mai 2025</span>
-                    </div>
-                </div>
-                <p class="text-xs text-gray-500 py-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Ab nobis
-                    magni dignissimos corporis iure natus explicabo consequatur, similique pariatur delectus.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    {{-- Button to show all reviews --}}
-    <div class="w-full mt-6">
-        <button class="text-xs bg-secondary rounded-2xl py-2 px-4 cursor-pointer text-mywhite">Voir tous les
-            avis</button>
-    </div>
+    @include("components.review")
 
     @if($showModal)
         @include("components.modal_booking")
