@@ -49,7 +49,7 @@
     @if ($showImageModal)
         <div class="fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-500 animate-fadeIn">
 
-            <div class="absolute inset-0 bg-myblack/50 bg-opacity-50" wire:click="closeImageCarousel"></div>
+            <div class="absolute inset-0 bg-myblack/80 bg-opacity-50" wire:click="closeImageCarousel"></div>
 
 
             <div class="bg-white rounded-xl shadow-lg p-6 w-4xl h-screen z-10 transform transition-transform duration-500 scale-95 animate-zoomIn">
