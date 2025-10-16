@@ -1,6 +1,4 @@
 <div class="mt-6 mb-6 w-full max-w-[90%] mx-auto" wire:poll>
-
-    @include("components.success")
     <div class="w-full flex justify-between">
         {{-- Navigation --}}
         <ul class="w-full flex justify-start items-center gap-8 text-sm text-gray-600">

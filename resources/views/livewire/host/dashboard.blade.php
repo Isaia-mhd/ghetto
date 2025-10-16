@@ -103,6 +103,8 @@
                 @livewire('host.terms')
             @elseif(Route::is('dashboard.properties'))
                 @livewire('host.list-property')
+            @elseif(Route::is('dashboard.properties.view'))
+                @livewire('host.property-details', ['property' => $property])
             @endif
         </div>
     </main>
