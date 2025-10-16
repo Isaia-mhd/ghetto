@@ -40,8 +40,15 @@
                 </div>
             @endif
         </div>
-
-        <a href="{{ route("property.details", $property->id) }}" wire:navigate class="text-xs text-secondary">Voir plus →</a>
+        <div class="flex justify-between items-center mt-6">
+            <a href="{{ route("property.details", $property->id) }}" wire:navigate class="text-xs text-secondary">Voir plus →</a>
+            @if ($property->owner_id == auth()->id())
+                <div class="flex gap-3 text-sm">
+                    <i class="fa-solid fa-gear text-myblack cursor-pointer" wire:click=''></i>
+                    <i class="fa-solid fa-trash text-red-600 cursor-pointer" wire:click='openModalDelete'></i>
+                </div>
+            @endif
+        </div>
 
     </div>
 
@@ -56,6 +63,11 @@
                     @livewire('image-carousel', ['images' => $images], key($property->id))
             </div>
         </div>
+    @endif
+
+    {{-- Modal for delete --}}
+    @if ($isToDelete)
+        @include("components.modal_delete_property")
     @endif
 </div>
 
