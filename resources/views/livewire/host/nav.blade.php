@@ -5,7 +5,7 @@
         <span>Dashboard</span>
     </a>
 
-    <a href="{{ route('profile.books') }}" wire:navigate
+    <a href="{{ route('dashboard.notifications') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
         <i class="fa-solid fa-bell text-green-600"></i>
         <span>Notifications</span>
