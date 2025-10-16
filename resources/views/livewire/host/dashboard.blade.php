@@ -105,6 +105,8 @@
                 @livewire('host.new-hotel')
             @elseif(Route::is('dashboard.notifications'))
                 @livewire('host.notification')
+            @elseif(Route::is('dashboard.terms'))
+                @livewire('host.terms')
             @endif
         </div>
     </main>
