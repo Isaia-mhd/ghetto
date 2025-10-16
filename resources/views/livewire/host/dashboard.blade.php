@@ -37,7 +37,7 @@
                                 <i class="fa-solid fa-building text-blue-500 text-xl"></i>
                             </div>
                             <p class="text-gray-500 text-sm">Gérez vos propriétés, disponibilités et tarifs.</p>
-                            <a href="#"
+                            <a href="{{ route("dashboard.properties") }}" wire:navigate
                                 class="inline-block mt-4 text-blue-600 hover:underline text-sm font-medium">
                                 Voir toutes mes annonces →
                             </a>
@@ -101,6 +101,8 @@
                 @livewire('host.notification')
             @elseif(Route::is('dashboard.terms'))
                 @livewire('host.terms')
+            @elseif(Route::is('dashboard.properties'))
+                @livewire('host.list-property')
             @endif
         </div>
     </main>
