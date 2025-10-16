@@ -5,12 +5,6 @@
             <i class="fa-solid fa-hotel text-blue-600"></i>
             Gerer votre Hotel
         </h1>
-
-        <a href="{{ route('dashboard.hotels.new') }}" wire:navigate
-            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-mywhite text-xs cursor-pointer px-4 py-2 rounded-lg shadow">
-            <i class="fa-solid fa-plus"></i>
-            Nouvel hotel
-        </a>
     </div>
     <div class="min-h-screen bg-mywhite p-6">
         {{-- Cards section --}}

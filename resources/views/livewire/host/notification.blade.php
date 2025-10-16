@@ -4,14 +4,13 @@
             <i class="fa-solid fa-bell text-green-600"></i>
             Notifications
         </h1>
-        <button wire:click=''
-            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-mywhite text-xs cursor-pointer px-4 py-2 rounded-lg shadow">
-            <i class="fa-solid fa-check-double"></i>
-            Marquer tout comme lu
-        </button>
     </div>
 
     <div class="min-h-screen bg-mywhite p-6">
+        <p wire:click=''
+            class="flex items-center gap-2 text-blue-600 font-semibold text-xs cursor-pointer">
+            Marquer tout comme lu
+        </p>
         {{-- @if(count($notifications) > 0) --}}
             <ul class="divide-y divide-gray-200">
                 @for($i=1; $i<=5; $i++)
