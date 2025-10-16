@@ -1,17 +1,17 @@
 <nav class="space-y-2 text-sm">
     <a href="{{ route('dashboard') }}" wire:navigate
-        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
+        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard') ? 'bg-indigo-50':'' }} {{ Route::is('dashboard') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-user text-indigo-600"></i>
         <span>Dashboard</span>
     </a>
 
     <a href="{{ route('dashboard.notifications') }}" wire:navigate
-        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
+        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.notifications') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-bell text-green-600"></i>
         <span>Notifications</span>
     </a>
     <a href="{{ route('dashboard.hotels') }}" wire:navigate
-        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
+        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.hotels') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-hotel text-pink-600"></i>
         <span>Gerer l'hotel</span>
     </a>
@@ -21,7 +21,7 @@
         <span>Parametres</span>
     </a>
     <a href="{{ route('dashboard.terms') }}" wire:navigate
-        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
+        class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.terms') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-scale-balanced text-slate-900"></i>
         <span>Conditions génerale</span>
     </a>
