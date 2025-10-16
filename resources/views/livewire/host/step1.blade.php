@@ -25,7 +25,7 @@
     <div>
     <label for="hotel" class="block text-gray-700 text-xs font-medium mb-1">Hotel</label>
     <select wire:model='hotelId' id="hotel"  class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200">
-        <option value="">Choisir l'hotel</option>
+        <option value="">Choisir votre hotel</option>
         @foreach ($hotels as $hotel)
             <option value="{{ $hotel->id }}">{{ Str::title($hotel->name) }}</option>
         @endforeach

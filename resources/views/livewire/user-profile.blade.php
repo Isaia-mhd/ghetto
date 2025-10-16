@@ -52,7 +52,7 @@
             @endif
             {{-- User profil --}}
             @if (Route::is("profile"))
-                @include('components.auth.profile')
+                @include("components.auth.profile")
             @endif
 
             {{-- Favorites --}}

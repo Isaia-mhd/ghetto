@@ -15,6 +15,7 @@ class UserProfile extends Component
      public $phone;
      public $address;
 
+     public $userAuth;
      public function openModal()
     {
         $this->showModal = true;
@@ -41,6 +42,7 @@ class UserProfile extends Component
         $this->email = auth()->user()->email;
         $this->phone = auth()->user()->phone;
         $this->address = auth()->user()->address;
+        $this->userAuth = auth()->user();
     }
     public function update($user)
     {
