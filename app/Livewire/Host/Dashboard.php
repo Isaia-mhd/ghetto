@@ -12,6 +12,7 @@ class Dashboard extends Component
     public $property;
     public $showModal = false;
 
+    public $allProperties;
     public function openModal()
     {
         $this->showModal = true;
@@ -28,6 +29,7 @@ class Dashboard extends Component
     public function mount(Property $property)
     {
         $this->property = $property;
+        $this->allProperties = Property::where('owner_id', auth()->id())->get();
     }
     public function render()
     {

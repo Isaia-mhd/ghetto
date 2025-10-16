@@ -77,7 +77,7 @@
                         <h2 class="text-xl font-semibold text-gray-800 mb-4">Statistiques rapides</h2>
                         <div class="grid sm:grid-cols-3 gap-6 text-center">
                             <div>
-                                <p class="text-2xl font-bold text-blue-600">12</p>
+                                <p class="text-2xl font-bold text-blue-600">{{ count($allProperties) }}</p>
                                 <p class="text-gray-500 text-sm">Annonces actives</p>
                             </div>
                             <div>
