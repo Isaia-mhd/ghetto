@@ -10,7 +10,11 @@
                     <span class="text-sm text-gray-600">{{ $property->address }}</span>
                 </div>
                 <div class="flex items-center gap-4 text-xl text-gray-500">
-                    <i class="fa-regular fa-heart hover:text-red-500 cursor-pointer transition-colors"></i>
+                    @if ($favorite)
+                        <i class="fa-solid fa-heart text-red-500 cursor-pointer transition-colors" wire:click='favor'></i>
+                    @else
+                        <i class="fa-regular fa-heart hover:text-red-500 cursor-pointer transition-colors" wire:click='favor'></i>
+                    @endif
                     <i class="fa-solid fa-share-nodes hover:text-blue-500 cursor-pointer transition-colors"></i>
                 </div>
             </div>

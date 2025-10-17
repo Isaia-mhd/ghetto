@@ -12,10 +12,24 @@ class PropertyDetails extends Component
     public $chekIn;
     public $chekOut;
     public $property;
+    public $favorite = false;
+    public function favor()
+    {
+        $this->favorite = !$this->favorite;
+
+        if($this->favorite)
+        {
+            auth()->user()->favorites()->syncWithoutDetaching([$this->property->id]);
+        } else{
+            auth()->user()->favorites()->detach($this->property->id);
+        }
+
+    }
 
     public function mount(Property $property)
     {
         $this->property = $property;
+        $this->favorite = auth()->user()->favorites->contains($this->property->id);
     }
 
     public function openModal()
