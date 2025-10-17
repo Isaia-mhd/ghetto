@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Property;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -14,6 +15,8 @@ class UserProfile extends Component
      public $email;
      public $phone;
      public $address;
+
+     public $favorites;
 
      public $userAuth;
      public function openModal()
@@ -43,6 +46,7 @@ class UserProfile extends Component
         $this->phone = auth()->user()->phone;
         $this->address = auth()->user()->address;
         $this->userAuth = auth()->user();
+        $this->favorites = auth()->user()->favorites;
     }
     public function update($user)
     {

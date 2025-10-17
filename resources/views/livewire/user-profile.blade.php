@@ -62,10 +62,10 @@
                         <i class="fa-solid fa-heart text-red-500"></i> Maisons favorites
                     </h3>
 
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        @for ($i = 0; $i < 5; $i++)
-                            @include('components.property_card')
-                        @endfor
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        @foreach ($favorites as $favorite)
+                            @livewire('property-card', ['property' => $favorite])
+                        @endforeach
                     </div>
                 </div>
             @endif
