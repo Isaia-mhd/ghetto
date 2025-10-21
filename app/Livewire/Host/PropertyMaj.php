@@ -35,14 +35,15 @@ class PropertyMaj extends Component
     public $toiletIntern;
     public $toiletExtern;
     public $coverImage;
-    public $newCoverImage;
+    public $oldCoverImage;
     public $isOffered;
     public $discount;
     public $guest;
     public $hotelId;
     public $latitude = null;
     public $longitude = null;
-    public $images;
+    public $newImages = [];
+    public $oldImages;
 
     protected $rules = [
         'name' => 'required',
@@ -50,8 +51,6 @@ class PropertyMaj extends Component
         'description' => 'required',
         'room' => 'required',
         'guest' => 'required',
-        'coverImage' => 'required',
-        'images.*' => 'max:2048',
     ];
     protected $messages = [
         "name.required" => "Le champ nom est obligatoire",
@@ -73,8 +72,8 @@ class PropertyMaj extends Component
         $this->kitchen = $property->kitchen;
         $this->parking = $property->parking;
         $this->guest = $property->guest;
-        $this->coverImage = $property->coverImage;
-        $this->images = $property->images;
+        $this->oldCoverImage = $property->coverImage;
+        $this->oldImages = $property->images;
         $this->isOffered = $property->isOffered;
         $this->isAvailable = $property->isAvailable;
         $this->active = $property->active;
@@ -104,27 +103,38 @@ class PropertyMaj extends Component
 
     public function update()
     {
-        $validated = $this->validate();
+        $this->validate();
 
-        if ($this->newCoverImage) {
+        if ($this->coverImage) {
             Storage::disk('public')->delete($this->property->coverImage);
-            $validated['coverImage'] = $this->newCoverImage->store('uploads/property', 'public');
+            $path = $this->coverImage->store('uploads/property', 'public');
+            $this->property->update([
+                'coverImage' => $path
+            ]);
         }
 
+        $images = [];
+        if ($this->newImages) {
+            foreach (json_decode($this->oldImages) as $oldImage) {
+                Storage::disk('public')->delete($oldImage);
+            }
+            foreach ($this->newImages as $image) {
+                $images[] = $image->store('uploads/property', 'public');
+            }
+        }
 
-        // $validated['images'] = [];
-        // if ($this->images) {
-        //     foreach ($this->property->images as $oldImage) {
-        //         Storage::disk('public')->delete($oldImage);
-        //     }
-        //     foreach ($this->images as $image) {
-        //         $validated['images'][] = $image->store('uploads/property', 'public');
-        //     }
-        // }
-        // $validated['images'] = json_encode($validated['images'], JSON_OBJECT_AS_ARRAY);
+        if ($this->newImages) {
+             $this->property->update([
+                'images' => json_encode($images, JSON_OBJECT_AS_ARRAY)
+            ]);
+        }
 
         $this->property->update([
-            ...$validated,
+            'name' => $this->name,
+            'address' => $this->address,
+            'description' => $this->description,
+            'room' => $this->room,
+            'guest' => $this->guest,
             'bed' => $this->bed,
             'parking' => $this->parking,
             'equipments' => json_encode($this->equipments),

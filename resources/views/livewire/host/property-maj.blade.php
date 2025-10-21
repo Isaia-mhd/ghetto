@@ -268,8 +268,8 @@
                 <div class="mb-4">
                     <label for="coverImage" class="block text-xs font-medium text-gray-700">Image de Couverture Actuelle</label>
                     <div class="mt-2 flex flex-col items-start space-y-2">
-                        <img src="{{ asset('storage/' . $property->coverImage) }}" alt="Couverture" class="w-24 h-24 object-cover rounded-lg">
-                        <input type="file" wire:model='newCoverImage' id="coverImage"
+                        <img src="{{ asset('storage/' . $oldCoverImage) }}" alt="Couverture" class="w-24 h-24 object-cover rounded-lg">
+                        <input type="file" wire:model='coverImage' id="coverImage"
                             class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
                     </div>
                     @error('coverImage') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
@@ -279,16 +279,16 @@
                 <div class="mb-4">
                     <label for="images" class="block text-xs font-medium text-gray-700 py-1">Ajouter/Modifier la Galerie d'Images</label>
                     <div class="flex justify-start items-center space-x-2">
-                        @foreach (json_decode($property->images) as $image)
+                        @foreach (json_decode($oldImages) as $image)
                             <div class="w-24 h-24 group relative">
                                 <i class="fa-solid fa-trash text-red-500 text-sm cursor-pointer absolute right-1 top-1 !hidden group-hover:!block"></i>
                                 <img src="{{ asset('storage/' . $image) }}" alt="couverture" class="cursor-pointer w-full h-full object-cover rounded-md text-xs">
                             </div>
                         @endforeach
                     </div>
-                    <input type="file" wire:model.defer='images[]' id="images" multiple
+                    <input type="file" wire:model='newImages' id="images" multiple
                         class="mt-1 block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
-                    @error('images') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    @error('newImages') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
 
                 </div>
             </div>
