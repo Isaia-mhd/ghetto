@@ -105,6 +105,8 @@
                 @livewire('host.list-property')
             @elseif(Route::is('dashboard.properties.view'))
                 @livewire('host.property-details', ['property' => $property])
+            @elseif(Route::is('dashboard.properties.update'))
+                @livewire('host.property-maj', ['property' => $property])
             @endif
         </div>
     </main>

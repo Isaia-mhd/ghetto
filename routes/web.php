@@ -31,6 +31,7 @@ Route::middleware("auth")->group(function(){
     Route::get('dashboard/terms', Dashboard::class)->name('dashboard.terms');
     Route::get('dashboard/properties', Dashboard::class)->name('dashboard.properties');
     Route::get('dashboard/properties/view/{property}', Dashboard::class)->name('dashboard.properties.view');
+    Route::get('dashboard/properties/update/{property}', Dashboard::class)->name('dashboard.properties.update');
 
     // Route::get('profile/dashboard/house', UserProfile::class)->name('profile.dashboard.house');
     Route::get('dashboard/properties/new', Dashboard::class)->name('dashboard.house.new');

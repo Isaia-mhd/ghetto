@@ -43,8 +43,9 @@
         <div class="flex justify-between items-center mt-6">
             <a href="{{ route("dashboard.properties.view", $property->id) }}" wire:navigate class="text-xs text-secondary">Voir en tant que client →</a>
             @if ($property->owner_id == auth()->id())
-                <div class="flex gap-3 text-sm">
-                    <i class="fa-solid fa-gear text-myblack cursor-pointer" wire:click=''></i>
+                <div class="flex gap-3 text-sm items-center">
+                    <a href="{{ route('dashboard.properties.update', $property->id) }}" wire:navigate>
+                    <i class="fa-solid fa-pen-to-square text-green-600 cursor-pointer"></i></a>
                     <i class="fa-solid fa-trash text-red-600 cursor-pointer" wire:click='openModalDelete'></i>
                 </div>
             @endif
