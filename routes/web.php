@@ -20,7 +20,7 @@ Route::get('/properties/{property}', PropertyDetails::class)->name('property.det
 Route::get('contact', Contact::class)->name('contact');
 Route::get('about', About::class)->name('about');
 
-Route::middleware("auth")->group(function(){
+Route::middleware("auth")->group(function () {
     Route::get('profile', UserProfile::class)->name('profile');
     Route::get('profile/books', UserProfile::class)->name('profile.books');
     Route::get('profile/favorites', UserProfile::class)->name('profile.favorites');
@@ -35,10 +35,9 @@ Route::middleware("auth")->group(function(){
 
     // Route::get('profile/dashboard/house', UserProfile::class)->name('profile.dashboard.house');
     Route::get('dashboard/properties/new', Dashboard::class)->name('dashboard.house.new');
-
 });
 
-Route::middleware("guest")->group(function(){
+Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)->name('login');
     Route::get('register', Register::class)->name('register');
 });

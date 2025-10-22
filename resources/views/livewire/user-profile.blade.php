@@ -33,11 +33,10 @@
                     <i class="fa-solid fa-gear text-myblack"></i>
                     <span>Parametres</span>
                 </a>
-                <button wire:click="openModal"
-                    class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
-                    <i class="fa-solid fa-arrow-right-from-bracket text-red-500"></i>
-                    <span>Déconnexion</span>
-                </button>
+
+                {{-- Logout Button --}}
+                <livewire:logout-button />
+
             </nav>
         </div>
     </aside>
@@ -45,34 +44,24 @@
     {{-- Main content --}}
     <main class="flex-1 p-8 overflow-y-auto">
         <div class="max-w-6xl mx-auto">
-
             {{-- Deconnexion Modal --}}
-            @if ($showModal)
-                @include("components.auth.modal_logout")
+            @if ($showModalLogout)
+                @include('components.auth.modal_logout')
             @endif
+
             {{-- User profil --}}
             @if (Route::is("profile"))
-                @include("components.auth.profile")
+                @livewire("profile-component")
             @endif
 
             {{-- Favorites --}}
             @if (Route::is("profile.favorites"))
-                <div class="w-full">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-heart text-red-500"></i> Maisons favorites
-                    </h3>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                        @foreach ($favorites as $favorite)
-                            @livewire('property-card', ['property' => $favorite])
-                        @endforeach
-                    </div>
-                </div>
+                @livewire("favorites-component")
             @endif
 
             {{-- Booking --}}
             @if (Route::is("profile.books"))
-                @livewire('booking')
+                @livewire("booking-component")
             @endif
         </div>
     </main>
