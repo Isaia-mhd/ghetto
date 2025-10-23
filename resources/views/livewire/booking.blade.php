@@ -10,10 +10,10 @@
     <div x-show="open" x-transition class="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
 
         <div @click.outside="open = false"
-            class="bg-white rounded-xl shadow-lg p-6 w-2xl z-10 transform transition-transform scale-95 animate-zoomIn">
+            class="bg-white rounded-xl shadow-lg p-6 w-xl z-10 transform transition-transform scale-95 animate-zoomIn">
 
             <h2 class="text-lg font-semibold text-gray-800 mb-4">Réserver cette maison</h2>
-
+            @include("components.error")
             {{-- booking content  --}}
             <div x-data="bookingComponent()" x-init="init()" class="space-y-4">
 
@@ -43,6 +43,24 @@
                     <input x-ref="checkout" type="text" placeholder="Choisir la date de sortie"
                         class="w-full rounded-md px-3 py-2 text-sm border border-gray-200 shadow-md outline-none">
                     @error('check_out')
+                        <p class="text-red-500 text-xs">{{ $message }}</p>
+                    @enderror
+                </div>
+                {{-- Check Out --}}
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">
+                        Méthode de tarification
+                    </label>
+                    <select wire:model='methodTarif' class="w-full rounded-md px-3 py-2 text-gray-500 text-sm border border-gray-200 shadow-md outline-none">
+                        <option value="">Choisir votre méthode de tarification</option>
+                        @foreach ($tarifications as $tarification)
+                            <option value="{{ $tarification->value }}">{{ $tarification->label }}</option>
+                        @endforeach
+                    </select>
+
+                    {{-- <input x-ref="checkout" type="text" placeholder="Choisir la date de sortie"
+                        > --}}
+                    @error('methodTarif')
                         <p class="text-red-500 text-xs">{{ $message }}</p>
                     @enderror
                 </div>

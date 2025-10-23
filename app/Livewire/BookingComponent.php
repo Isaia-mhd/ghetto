@@ -22,7 +22,9 @@ class BookingComponent extends Component
     {
         // $this->myActualBookings = auth()->user()->bookings->where('check_out' <= now())->get();
         $this->myActualBookings = Booking::where('user_id', auth()->id())
-                                            ->where('check_out', '>=', now())->get();
+                                            ->where('check_out', '>=', now())
+                                            ->orWhere('isNoEnd', true)
+                                            ->get();
         $this->myPastBookings = Booking::where('user_id', auth()->id())
                                             ->where('check_out', '<', now())->get();
     }

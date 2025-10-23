@@ -20,7 +20,6 @@ class PropertyMaj extends Component
     public $pricePerNight;
     public $pricePerDay;
     public $pricePerMonth;
-    public $pricePerYear;
     public $kitchen;
     public $parking;
     public $isAvailable;
@@ -141,7 +140,6 @@ class PropertyMaj extends Component
             'pricePerNight' => $this->pricePerNight,
             'pricePerDay' => $this->pricePerDay,
             'pricePerMonth' => $this->pricePerMonth,
-            'pricePerYear' => $this->pricePerYear,
             'bath' => $this->bath,
             'bathIntern' => $this->bath ? $this->bathIntern : null,
             'bathExtern' => $this->bath ? $this->bathExtern : null,

@@ -32,10 +32,9 @@ return new class extends Migration
             $table->unsignedInteger('toiletExtern')->nullable();
             $table->boolean('parking')->nullable();
             $table->boolean('kitchen')->nullable();
-            $table->decimal('pricePerNight', 8, 2)->nullable();
-            $table->decimal('pricePerDay', 8, 2)->nullable();
-            $table->decimal('pricePerMonth', 8, 2)->nullable();
-            $table->decimal('pricePerYear', 8, 2)->nullable();
+            $table->unsignedBigInteger('pricePerNight')->nullable();
+            $table->unsignedBigInteger('pricePerDay')->nullable();
+            $table->unsignedBigInteger('pricePerMonth')->nullable();
             $table->boolean('isOffered')->default(false);
             $table->unsignedInteger('discount')->nullable();
             $table->boolean('isAvailable')->default(true);

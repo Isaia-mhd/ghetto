@@ -37,7 +37,6 @@ class NewProperty extends Component
     public $pricePerNight;
     public $pricePerDay;
     public $pricePerMonth;
-    public $pricePerYear;
     public $guest;
     public $isOffered = false;
     public $discount = null;
@@ -152,7 +151,6 @@ class NewProperty extends Component
             'pricePerNight' => $this->pricePerNight,
             'pricePerDay' => $this->pricePerDay,
             'pricePerMonth' => $this->pricePerMonth,
-            'pricePerYear' => $this->pricePerYear,
             'bath' => $this->bath,
             'bathIntern' => $this->bath ? $this->bathIntern : null,
             'bathExtern' => $this->bath ? $this->bathExtern : null,

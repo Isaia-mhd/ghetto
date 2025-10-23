@@ -39,17 +39,6 @@
     @enderror
 </div>
 
-{{-- priceYear --}}
-<div>
-    <label for="pricePerYear" class="block text-gray-700 text-xs font-medium mb-1">Prix / an (€)</label>
-    <input type="number" wire:model='pricePerYear' id="pricePerYear"
-        class="w-full text-xs border-gray-300 shadow-sm rounded-md px-3 outline-none py-2 focus:ring focus:ring-blue-200"
-        placeholder="Ex : 200">
-    @error('pricePerYear')
-        <p class="text-red-500 text-xs">{{ $message }}</p>
-    @enderror
-</div>
-
 {{-- Next button --}}
 <div class="pt-4 flex justify-end gap-4">
     <button wire:click='back'

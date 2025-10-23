@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId('property_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->date('check_in');
-            $table->date('check_out');
+            $table->date('check_out')->nullable();
+            $table->boolean('isNoEnd')->nullable()->default(false);
             $table->unsignedInteger('guest');
             $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
-            $table->decimal('total_price', 10, 2)->nullable();
+            $table->unsignedBigInteger('total_price')->nullable();
             $table->timestamps();
         });
     }
