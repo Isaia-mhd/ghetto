@@ -1,5 +1,5 @@
 <div class="w-full max-w-[90%] mx-auto py-6">
-
+    @include("components.success")
     @include('components.image_gallery')
 
     <div class="w-full flex flex-col lg:flex-row gap-8">

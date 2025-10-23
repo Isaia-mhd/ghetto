@@ -23,4 +23,9 @@ class Property extends Model
     {
         return $this->belongsToMany(User::class, 'favorites');
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

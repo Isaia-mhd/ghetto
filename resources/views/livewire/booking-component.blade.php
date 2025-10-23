@@ -5,6 +5,7 @@
             <i class="fa-solid fa-calendar-check text-green-600"></i>
             Vos Réservations
         </h3>
+        @include("components.success")
 
         {{-- Tab --}}
         <div class="mt-6 border-b border-gray-300 flex justify-start items-center gap-8">
@@ -25,38 +26,100 @@
 
         {{-- Main Content --}}
         <div class="mt-6 space-y-5">
-            @foreach ([1, 2, 3] as $i)
-                <div
-                    class="rounded-2xl px-5 py-4 bg-mywhite shadow-md border border-gray-100 flex justify-between items-center gap-3 hover:shadow-lg transition-all duration-300">
+            @if ($upComingActive)
+                @foreach ($myActualBookings as $myActualBooking)
+                    <div
+                        class="rounded-2xl px-5 py-4 bg-mywhite shadow-md border border-gray-100 flex justify-between items-center gap-3 hover:shadow-lg transition-all duration-300">
 
-                    <div class="flex items-center gap-4">
-                        <img src="{{ asset('assets/house1.jpg') }}" alt="image"
-                            class="w-20 h-20 rounded-2xl object-cover shadow-sm hidden md:block">
+                        <div class="flex items-center gap-4">
+                            <img src="{{ asset('storage/' . $myActualBooking->property->coverImage) }}" alt="property_name"
+                                class="w-20 h-20 rounded-2xl object-cover shadow-sm hidden md:block">
 
-                        <div class="space-y-1">
-                            <h3 class="text-base font-semibold text-myblack">Appartement entièrement meublé</h3>
-                            <div class="flex flex-col lg:flex-row lg:items-center text-sm text-accent gap-2 lg:gap-6">
-                                <p><span class="font-semibold text-primary">Entrée :</span> 12 mars 2021</p>
-                                <p><span class="font-semibold text-primary">Durée :</span> Long (2 - 5 ans)</p>
-                                <p><span class="font-semibold text-primary">Personnes :</span> 4</p>
+                            <div class="space-y-2">
+                                <div class="">
+                                    <h3 class="text-base font-semibold text-myblack">{{ $myActualBooking->property->name }}</h3>
+                                    <p class="text-xs text-myblack">{{ $myActualBooking->property->address }}</p>
+                                </div>
+                                <div class="flex flex-col lg:flex-row lg:items-center text-sm text-accent gap-2 lg:gap-6">
+                                    <p><span class="font-semibold text-primary">Entrée : </span>{{ Carbon\Carbon::parse($myActualBooking->check_in)->format('d M Y') }}</p>
+                                    <p><span class="font-semibold text-primary">Sortie : </span>{{ \Carbon\Carbon::parse($myActualBooking->check_out)->format('d M Y') }}</p>
+
+                                    <p><span class="font-semibold text-primary">Personnes : </span>{{ $myActualBooking->guest }}</p>
+                                </div>
+
+                                <p class="text-sm text-secondary">{{ $myActualBooking->total_price }}</p>
+
+                                <p class="text-xs font-semibold
+                                    {{ $myActualBooking->status === 'confirmed' ? 'text-green-500' :
+                                    ($myActualBooking->status === 'cancelled' ? 'text-red-500' : 'text-amber-400') }}">
+                                    {{ Str::title($myActualBooking->status) }}
+                                </p>
+
+
                             </div>
-                            <p class="text-sm font-bold text-secondary">$1200 USD</p>
                         </div>
-                    </div>
 
-                    @if ($upComingActive)
-                        <button
-                            class="text-xs font-semibold text-mywhite bg-secondary hover:bg-accent rounded-full py-2 px-5 shadow transition">
-                            Annuler
-                        </button>
-                    @else
-                        <button
-                            class="text-xs font-semibold text-gray-600 bg-gray-100 rounded-full py-2 px-5 cursor-not-allowed">
-                            Terminé
-                        </button>
-                    @endif
-                </div>
-            @endforeach
+                        @if ($upComingActive)
+                            <button
+                                class="text-xs font-semibold text-mywhite bg-secondary hover:bg-accent rounded-full py-2 px-5 shadow transition">
+                                Annuler
+                            </button>
+                        @else
+                            <button
+                                class="text-xs font-semibold text-gray-600 bg-gray-100 rounded-full py-2 px-5 cursor-not-allowed">
+                                Terminé
+                            </button>
+                        @endif
+                    </div>
+                @endforeach
+            @else
+                @foreach ($myPastBookings as $myPastBooking)
+                    <div
+                        class="rounded-2xl px-5 py-4 bg-mywhite shadow-md border border-gray-100 flex justify-between items-center gap-3 hover:shadow-lg transition-all duration-300">
+
+                        <div class="flex items-center gap-4">
+                            <img src="{{ asset('storage/' . $myPastBooking->property->coverImage) }}" alt="property_name"
+                                class="w-20 h-20 rounded-2xl object-cover shadow-sm hidden md:block">
+
+                            <div class="space-y-2">
+                                <div class="">
+                                    <h3 class="text-base font-semibold text-myblack">{{ $myPastBooking->property->name }}</h3>
+                                    <p class="text-xs text-myblack">{{ $myPastBooking->property->address }}</p>
+                                </div>
+                                <div class="flex flex-col lg:flex-row lg:items-center text-sm text-accent gap-2 lg:gap-6">
+                                    <p><span class="font-semibold text-primary">Entrée : </span>{{ Carbon\Carbon::parse($myPastBooking->check_in)->format('d M Y') }}</p>
+                                    <p><span class="font-semibold text-primary">Sortie : </span>{{ \Carbon\Carbon::parse($myPastBooking->check_out)->format('d M Y') }}</p>
+
+                                    <p><span class="font-semibold text-primary">Personnes : </span>{{ $myPastBooking->guest }}</p>
+                                </div>
+
+                                <p class="text-sm text-secondary">{{ $myPastBooking->total_price }}</p>
+
+                                <p class="text-xs font-semibold
+                                    {{ $myPastBooking->status === 'confirmed' ? 'text-green-500' :
+                                    ($myPastBooking->status === 'cancelled' ? 'text-red-500' : 'text-amber-400') }}">
+                                    {{ Str::title($myPastBooking->status) }}
+                                </p>
+
+
+                            </div>
+                        </div>
+
+                        @if ($upComingActive)
+                            <button
+                                class="text-xs font-semibold text-mywhite bg-secondary hover:bg-accent rounded-full py-2 px-5 shadow transition">
+                                Annuler
+                            </button>
+                        @else
+                            <button
+                                class="text-xs font-semibold text-gray-600 bg-gray-100 rounded-full py-2 px-5 cursor-not-allowed">
+                                Terminé
+                            </button>
+                        @endif
+                    </div>
+                @endforeach
+
+            @endif
         </div>
     </div>
 

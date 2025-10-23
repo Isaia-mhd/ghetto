@@ -87,10 +87,7 @@
         </div>
 
         <div class="w-full mt-6 space-y-4">
-            <button wire:click="openModal"
-                class="w-full text-xs cursor-pointer bg-secondary text-mywhite py-3 px-8 rounded-full font-normal shadow-md hover:bg-secondary-dark transition-colors">
-                Réserver maintenant
-            </button>
+            <livewire:booking :property="$property"/>
         </div>
     </div>
 </div>

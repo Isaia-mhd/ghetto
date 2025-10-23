@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Property::class, 'favorites');
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
