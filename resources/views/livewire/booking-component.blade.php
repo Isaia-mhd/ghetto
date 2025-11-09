@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="flex flex-col lg:flex-row lg:items-center text-sm text-accent gap-2 lg:gap-6">
                                     <p><span class="font-semibold text-primary">Entrée : </span>{{ Carbon\Carbon::parse($myPastBooking->check_in)->format('d M Y') }}</p>
-                                    <p><span class="font-semibold text-primary">Sortie : </span>{{ $myActualBooking->isNoEnd ? 'Non précisé' : \Carbon\Carbon::parse($myPastBooking->check_out)->format('d M Y') }}</p>
+                                    <p><span class="font-semibold text-primary">Sortie : </span>{{ $myPastBooking->isNoEnd ? 'Non précisé' : \Carbon\Carbon::parse($myPastBooking->check_out)->format('d M Y') }}</p>
 
                                     <p><span class="font-semibold text-primary">Personnes : </span>{{ $myPastBooking->guest }}</p>
                                 </div>
