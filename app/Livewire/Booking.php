@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Tarification;
+use App\Services\Booking\NewBooking;
 use App\Services\Tarification\TotalPriceService;
 use Carbon\Carbon;
 use Exception;
@@ -55,11 +56,11 @@ class Booking extends Component
         $this->validateOnly($field);
     }
 
-    public function book(TotalPriceService $totalPriceService)
+    public function book(TotalPriceService $totalPriceService, NewBooking $newBooking)
     {
         $validated = $this->validate();
         try {
-            Book::create([
+            $book = Book::create([
                 'property_id' => $this->property->id,
                 'user_id' => auth()->id(),
                 ...$validated,
@@ -68,6 +69,9 @@ class Booking extends Component
                 'total_price' => $totalPriceService->totalPrice($this->property, $this->methodTarif, $this->check_in, $this->check_out )
 
             ]);
+
+            // Notify the owner of property
+            $newBooking->notification($book);
         } catch (Exception $e) {
             session()->flash('error', $e->getMessage());
             return back();

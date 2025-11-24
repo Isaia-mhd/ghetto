@@ -15,13 +15,15 @@ class PropertyDetails extends Component
     public $favorite = false;
     public function favor()
     {
-        $this->favorite = !$this->favorite;
+        if (auth()->check()) {
+            $this->favorite = !$this->favorite;
 
-        if($this->favorite)
-        {
-            auth()->user()->favorites()->syncWithoutDetaching([$this->property->id]);
-        } else{
-            auth()->user()->favorites()->detach($this->property->id);
+            if($this->favorite)
+            {
+                auth()->user()->favorites()->syncWithoutDetaching([$this->property->id]);
+            } else{
+                auth()->user()->favorites()->detach($this->property->id);
+            }
         }
 
     }
@@ -29,7 +31,10 @@ class PropertyDetails extends Component
     public function mount(Property $property)
     {
         $this->property = $property;
-        $this->favorite = auth()->user()->favorites->contains($this->property->id);
+        if(auth()->check())
+        {
+            $this->favorite = auth()->user()->favorites->contains($this->property->id);
+        }
     }
 
     public function openModal()
