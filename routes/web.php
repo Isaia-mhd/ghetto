@@ -28,6 +28,7 @@ Route::middleware("auth")->group(function () {
     Route::get('dashboard/hotels', Dashboard::class)->name('dashboard.hotels');
     Route::get('dashboard/hotels/new', Dashboard::class)->name('dashboard.hotels.new');
     Route::get('dashboard/notifications', Dashboard::class)->name('dashboard.notifications');
+    Route::get('dashboard/bookings', Dashboard::class)->name('dashboard.bookings');
     Route::get('dashboard/terms', Dashboard::class)->name('dashboard.terms');
     Route::get('dashboard/properties', Dashboard::class)->name('dashboard.properties');
     Route::get('dashboard/properties/view/{property}', Dashboard::class)->name('dashboard.properties.view');

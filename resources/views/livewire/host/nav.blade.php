@@ -8,17 +8,17 @@
     <a href="{{ route('dashboard.notifications') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.notifications') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-bell text-green-600"></i>
-        <span>Notifications</span>
+        <span>Notifications {{ auth()->user()->notifications->whereNull('read_at')->count() }}</span>
     </a>
     <a href="{{ route('dashboard.hotels') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.hotels') ? 'bg-indigo-50':'' }}">
         <i class="fa-solid fa-hotel text-pink-600"></i>
         <span>Gerer l'hotel</span>
     </a>
-    <a href="{{ route('profile') }}" wire:navigate
+    <a href="{{ route('dashboard.bookings') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md">
         <i class="fa-solid fa-gear text-myblack"></i>
-        <span>Parametres</span>
+        <span>Réservations</span>
     </a>
     <a href="{{ route('dashboard.terms') }}" wire:navigate
         class="w-full cursor-pointer flex items-center gap-3 text-gray-700 hover:bg-indigo-50 p-2 rounded-md {{ Route::is('dashboard.terms') ? 'bg-indigo-50':'' }}">

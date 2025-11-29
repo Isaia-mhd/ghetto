@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('check_out')->nullable();
             $table->boolean('isNoEnd')->nullable()->default(false);
             $table->unsignedInteger('guest');
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'confirmed', 'cancelled', 'rejected'])->default('pending');
             $table->unsignedBigInteger('total_price')->nullable();
             $table->timestamps();
         });

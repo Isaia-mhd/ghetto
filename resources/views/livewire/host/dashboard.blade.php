@@ -99,6 +99,8 @@
                 @livewire('host.new-hotel')
             @elseif(Route::is('dashboard.notifications'))
                 @livewire('host.notification')
+            @elseif(Route::is('dashboard.bookings'))
+                @livewire('host.bookings')
             @elseif(Route::is('dashboard.terms'))
                 @livewire('host.terms')
             @elseif(Route::is('dashboard.properties'))

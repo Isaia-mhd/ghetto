@@ -16,7 +16,10 @@
             <a href="{{ route("login") }}" wire:navigate class="bg-secondary font-semibold text-xs py-2 px-3 rounded-full">Connexion</a>
             @endguest
             @auth
-                <a href=""><i class="fa-solid fa-bell"></i></a>
+                <div class="relative">
+                    <livewire:client-notification>
+                    <livewire:notification-counter />
+                </div>
                 <a href="{{ route("profile") }}" wire:navigate
                     class="w-20 h-10 hidden border-2 py-2 border-primary hover:border-secondary duration-700 lg:flex justify-center items-center gap-2 rounded-full">
                     <i class="fa-solid fa-bars"></i>

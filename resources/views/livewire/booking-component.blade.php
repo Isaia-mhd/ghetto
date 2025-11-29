@@ -25,7 +25,7 @@
         </div>
 
         {{-- Main Content --}}
-        <div class="mt-6 space-y-5">
+        <div class="mt-6 space-y-5" wire:poll>
             @if ($upComingActive)
                 @foreach ($myActualBookings as $myActualBooking)
                     <div
@@ -51,7 +51,7 @@
 
                                 <p class="text-xs font-semibold
                                     {{ $myActualBooking->status === 'confirmed' ? 'text-green-500' :
-                                    ($myActualBooking->status === 'cancelled' ? 'text-red-500' : 'text-amber-400') }}">
+                                    ($myActualBooking->status === 'cancelled' || $myActualBooking->status === 'rejected' ? 'text-red-500' : 'text-amber-400') }}">
                                     {{ Str::title($myActualBooking->status) }}
                                 </p>
 
@@ -59,7 +59,7 @@
                             </div>
                         </div>
 
-                        @if ($upComingActive)
+                        @if ($upComingActive && $myActualBooking->status === "pending")
                             <button
                                 class="text-xs font-semibold text-mywhite bg-secondary hover:bg-accent rounded-full py-2 px-5 shadow transition">
                                 Annuler
@@ -72,6 +72,13 @@
                         @endif
                     </div>
                 @endforeach
+                @if (count($myActualBookings) <= 0)
+                    <div class="p-4 bg-gray-100 rounded-md">
+                        <p class="text-gray-700 text-sm md:text-base">
+                            Vous n'avez pas encore de réservation en cours.
+                        </p>
+                    </div>
+                @endif
             @else
                 @foreach ($myPastBookings as $myPastBooking)
                     <div
@@ -97,7 +104,7 @@
 
                                 <p class="text-xs font-semibold
                                     {{ $myPastBooking->status === 'confirmed' ? 'text-green-500' :
-                                    ($myPastBooking->status === 'cancelled' ? 'text-red-500' : 'text-amber-400') }}">
+                                    ($myPastBooking->status === 'cancelled' || $myActualBooking->status === 'rejected' ? 'text-red-500' : 'text-amber-400') }}">
                                     {{ Str::title($myPastBooking->status) }}
                                 </p>
 
@@ -118,7 +125,13 @@
                         @endif
                     </div>
                 @endforeach
-
+                @if (count($myPastBookings) <= 0)
+                    <div class="p-4 bg-gray-100 rounded-md">
+                        <p class="text-gray-700 text-sm md:text-base">
+                            Vous n'avez pas encore de réservation passée.
+                        </p>
+                    </div>
+                @endif
             @endif
         </div>
     </div>

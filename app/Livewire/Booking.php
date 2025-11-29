@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Tarification;
-use App\Services\Booking\NewBooking;
+use App\Services\Booking\BookingNotification;
 use App\Services\Tarification\TotalPriceService;
 use Carbon\Carbon;
 use Exception;
@@ -56,7 +56,7 @@ class Booking extends Component
         $this->validateOnly($field);
     }
 
-    public function book(TotalPriceService $totalPriceService, NewBooking $newBooking)
+    public function book(TotalPriceService $totalPriceService, BookingNotification $bookingNotifiacation)
     {
         $validated = $this->validate();
         try {
@@ -66,12 +66,12 @@ class Booking extends Component
                 ...$validated,
                 'status' => 'pending',
                 'isNoEnd' => empty($this->check_out) ? true : false,
-                'total_price' => $totalPriceService->totalPrice($this->property, $this->methodTarif, $this->check_in, $this->check_out )
-
+                'total_price' => $totalPriceService->totalPrice($this->property, $this->methodTarif, $this->check_in, $this->check_out ),
+                'owner_id' => $this->property->owner_id
             ]);
 
             // Notify the owner of property
-            $newBooking->notification($book);
+            $bookingNotifiacation->newBook($book);
         } catch (Exception $e) {
             session()->flash('error', $e->getMessage());
             return back();
