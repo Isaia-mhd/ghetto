@@ -50,10 +50,7 @@ class NewBook extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'message' => 'Vous avez une nouvelle réservation.',
-            'client_name' => auth()->user()->name,
-            'property_title' => $this->book->property->name,
-            'book_id' => $this->book->id,
+            'message' => auth()->user()->name . ' a réservé votre propriété ' . $this->book->property->name . '. Veuillez vérifier votre page de réservation.',
             'created_at' => now(),
         ];
     }
